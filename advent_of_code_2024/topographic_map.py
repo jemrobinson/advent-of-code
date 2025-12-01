@@ -13,31 +13,31 @@ class TopographicMap:
         self.max_height = max_height
 
     def find_trailheads(self) -> list[GridLocation]:
-        """Find all trailheads"""
+        """Find all trailheads."""
         return self.matrix.find(0)
 
     def rate_trailhead(self, trailhead: GridLocation) -> int:
-        """Get the rating for a trailhead"""
+        """Get the rating for a trailhead."""
         return len(self.unique_routes_summits(trailhead))
 
     def rating(self) -> int:
-        """Get the total rating"""
+        """Get the total rating."""
         return sum(
             [self.rate_trailhead(trailhead) for trailhead in self.find_trailheads()]
         )
 
     def score_trailhead(self, trailhead: GridLocation) -> int:
-        """Get the score for a trailhead"""
+        """Get the score for a trailhead."""
         return len(set(self.unique_routes_summits(trailhead)))
 
     def score(self) -> int:
-        """Get the total score"""
+        """Get the total score."""
         return sum(
             [self.score_trailhead(trailhead) for trailhead in self.find_trailheads()]
         )
 
     def unique_routes_summits(self, trailhead: GridLocation) -> list[GridLocation]:
-        """Get the full list of summits at the end of a unique route"""
+        """Get the full list of summits at the end of a unique route."""
         positions = [trailhead]
         while self.matrix.get(positions[0]) < self.max_height:
             valid_moves = [self.valid_moves(position) for position in positions]
@@ -45,7 +45,7 @@ class TopographicMap:
         return positions
 
     def valid_moves(self, start: GridLocation) -> list[GridLocation]:
-        """Look for all valid moves moving upwards from start"""
+        """Look for all valid moves moving upwards from start."""
         target_value = self.matrix.get(start) + 1
         return [
             candidate

@@ -38,12 +38,12 @@ class Calibration:
 
 
 class CalibrationSimple(Calibration):
-    def __init__(self, line: str):
+    def __init__(self, line: str) -> None:
         super().__init__(line, operators=[Operator.PLUS, Operator.TIMES])
 
 
 class CalibrationFull(Calibration):
-    def __init__(self, line: str):
+    def __init__(self, line: str) -> None:
         super().__init__(
             line, operators=[Operator.PLUS, Operator.TIMES, Operator.CONCATENATE]
         )

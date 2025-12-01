@@ -8,7 +8,7 @@ from advent_of_code_2024.data_loaders import load_csv_as_df, load_file_as_lines
 
 
 class OrderingRule:
-    def __init__(self, rule: pd.Series) -> None:  # type: ignore[type-arg]
+    def __init__(self, rule: pd.Series) -> None:
         self.first = int(rule[0])
         self.second = int(rule[1])
 

@@ -3,7 +3,7 @@ from advent_of_code_2024.utility import count
 
 
 class WordSearchSimple:
-    def __init__(self, filename: str):
+    def __init__(self, filename: str) -> None:
         lines = load_file_as_lines(filename)
         size = len(lines)
         self.rows = [line.strip() for line in lines]

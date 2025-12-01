@@ -12,6 +12,7 @@ class ButtonNode(Node):
         super().__init__(value=value)
 
     def __lt__(self, other: object) -> bool:
+        """Less than operator for sorting."""
         if not isinstance(other, ButtonNode):
             raise NotImplementedError
         return bool(self.value < other.value)
@@ -44,7 +45,7 @@ class Keypad:
         valid_paths: dict[str, dict[str, list[str]]] = defaultdict(
             lambda: defaultdict(list)
         )
-        for button_pos in buttons.keys():
+        for button_pos in buttons:
             for move in possible_moves:
                 current_pos, valid = button_pos, True
                 for char in move:
@@ -90,7 +91,7 @@ class KeypadSolver:
 
     @lru_cache(None)  # noqa: B019
     def n_button_presses(self, code: str, depth: int = 0) -> int:
-        """Calculate minimum number of button presses recursively
+        """Calculate minimum number of button presses recursively.
 
         If we are at the final (human-controlled) keypad then the number of presses is the length of the code
         Otherwise, for each change from key-A -> key-B in the code

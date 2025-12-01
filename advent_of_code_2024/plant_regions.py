@@ -6,11 +6,12 @@ from advent_of_code_2024.matrix import StrMatrix
 
 
 class Region:
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
         self.locations: list[GridLocation] = []
 
     def __str__(self) -> str:
+        """Define string representation of the region."""
         return f"Region(name={self.name}, area={self.area}, perimeter={self.perimeter}, sides={self.sides})"
 
     @property
@@ -38,7 +39,7 @@ class Region:
 
     @property
     def sides(self) -> int:
-        """We count the number of corners, which is equivalent to the number of sides"""
+        """We count the number of corners, which is equivalent to the number of sides."""
         return sum(self.corners(location) for location in self.locations)
 
     def corners(self, location: GridLocation) -> int:
@@ -71,8 +72,7 @@ class Region:
             if (has_north and has_south) or (has_east and has_west):
                 return 0
             # ... in an L-shape: we need to check the inside diagonal
-            else:
-                return 2 - n_filled_diagonals
+            return 2 - n_filled_diagonals
         # Three neighbours in a T-shape: we need to check the inside diagonals
         if n_neighbours == 3:  # noqa: PLR2004
             return 2 - n_filled_diagonals
@@ -102,11 +102,11 @@ class GardenPlot:
         return region
 
     def find_regions(self) -> list[Region]:
-        regions = []
-        for location in self.array.locations():
-            if self.array.get(location) in self.plant_types:
-                regions.append(self.build_region(location))
-        return regions
+        return [
+            self.build_region(location)
+            for location in self.array.locations()
+            if self.array.get(location) in self.plant_types
+        ]
 
     def get_neighbours(self, location: GridLocation) -> list[GridLocation]:
         return [

@@ -2,6 +2,7 @@ import re
 from functools import reduce
 from itertools import combinations
 from operator import mul
+from pathlib import Path
 
 import numpy as np
 
@@ -89,7 +90,7 @@ class RobotGrid:
 
             # Draw the positions if we got a match
             if draw:
-                with open(f"trees/robots_{idx_step}.txt", "w") as f_out:
+                with Path(f"trees/robots_{idx_step}.txt").open("w") as f_out:
                     f_out.writelines(self.draw_positions())
                 return idx_step
 
@@ -109,7 +110,7 @@ class RobotGrid:
 
             # If the number of adjacent robots is above threshold then stop
             if adjacency > threshold:
-                with open(f"trees/robots_{idx_step}.txt", "w") as f_out:
+                with Path(f"trees/robots_{idx_step}.txt").open("w") as f_out:
                     f_out.writelines(self.draw_positions())
                 return idx_step
 
@@ -130,7 +131,7 @@ class RobotGrid:
 
             # If the number of non-adjacent robots is below threshold then stop
             if non_adjacency < threshold:
-                with open(f"trees/robots_{idx_step}.txt", "w") as f_out:
+                with Path(f"trees/robots_{idx_step}.txt").open("w") as f_out:
                     f_out.writelines(self.draw_positions())
                 return idx_step
 

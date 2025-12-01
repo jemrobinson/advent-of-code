@@ -14,13 +14,14 @@ class PushdownNode(Node):
         return self.location.as_tuple()
 
     def __lt__(self, other: object) -> bool:
+        """Less than operator for sorting."""
         if not isinstance(other, PushdownNode):
             raise NotImplementedError
         return self.location < other.location
 
     @property
     def location(self) -> GridLocation:
-        return cast(GridLocation, self.value)
+        return cast("GridLocation", self.value)
 
     def neighbours(self) -> list["PushdownNode"]:
         return [

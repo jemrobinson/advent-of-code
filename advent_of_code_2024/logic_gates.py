@@ -1,3 +1,4 @@
+from contextlib import suppress
 from copy import deepcopy
 from functools import reduce
 from operator import iadd
@@ -22,6 +23,7 @@ class LogicNode:
         return self.bit_
 
     def __repr__(self) -> str:
+        """Define string representation of the node."""
         return f"LogicNode({self.name}, {self.bit_})"
 
 
@@ -45,6 +47,7 @@ class AndGate(LogicGate):
         super().__init__(*args)
 
     def __repr__(self) -> str:
+        """Define string representation of the gate."""
         return f"AndGate({self.input_0} AND {self.input_1} -> {self.output})"
 
     def run(self) -> None:
@@ -56,6 +59,7 @@ class OrGate(LogicGate):
         super().__init__(*args)
 
     def __repr__(self) -> str:
+        """Define string representation of the gate."""
         return f"OrGate({self.input_0} OR {self.input_1} -> {self.output})"
 
     def run(self) -> None:
@@ -67,6 +71,7 @@ class XorGate(LogicGate):
         super().__init__(*args)
 
     def __repr__(self) -> str:
+        """Define string representation of the gate."""
         return f"XorGate({self.input_0} XOR {self.input_1} -> {self.output})"
 
     def run(self) -> None:
@@ -111,24 +116,23 @@ class Computer:
         return gates
 
     def calculate_swaps(self, max_swaps: int = 4) -> str:
-        """
-        An n-bit adder consists of an initial half-adder then n-1 full-adders
-        Each half-adder is and XOR and an AND
-        Each full-adder needs two half-adders and an OR
+        """Calculate all necessary swaps.
+
+        An n-bit adder consists of an initial half-adder then n-1 full-adders.
+        Each half-adder is and XOR and an AND.
+        Each full-adder needs two half-adders and an OR.
 
         See e.g. https://www.101computing.net/binary-additions-using-logic-gates/
         """
         for _ in range(max_swaps):
-            try:
+            with suppress(SwapError):
                 self.find_next_swap()
-            except SwapError:
-                pass
         return ",".join(
             sorted(reduce(iadd, [(swap[0].name, swap[1].name) for swap in self.swaps]))
         )
 
     def evaluate(self) -> None:
-        """Evaluate all the gates in order"""
+        """Evaluate all the gates in order."""
         queue = list(self.gates)
         while queue:
             remaining = []
@@ -140,23 +144,22 @@ class Computer:
             queue = remaining
 
     def find_gate(self, name_0: str, name_1: str, kind: type[LogicGate]) -> LogicGate:
-        """Find a gate given its inputs"""
+        """Find a gate given its inputs."""
         for gate in self.gates:
             if gate.is_for_inputs(name_0, name_1) and isinstance(gate, kind):
                 return gate
         raise ValueError
 
     def find_next_swap(self) -> None:
-        """
-        An n-bit adder consists of an initial half-adder then n-1 full-adders
-        Each half-adder is and XOR and an AND
-        Each full-adder needs two half-adders and an OR
+        """Find next necessary swap.
+
+        An n-bit adder consists of an initial half-adder then n-1 full-adders.
+        Each half-adder is and XOR and an AND.
+        Each full-adder needs two half-adders and an OR.
 
         See e.g. https://www.101computing.net/binary-additions-using-logic-gates/
         """
-        n_bits_output = len(
-            [name for name in self.nodes.keys() if name.startswith("z")]
-        )
+        n_bits_output = len([name for name in self.nodes if name.startswith("z")])
         n_bits_input = n_bits_output - 1
         last_carry = None
         for idx_bit in range(n_bits_input):
@@ -211,7 +214,7 @@ class Computer:
 
     def output(self) -> int:
         self.evaluate()
-        z_names = sorted([name for name in self.nodes.keys() if name.startswith("z")])
+        z_names = sorted([name for name in self.nodes if name.startswith("z")])
         z_bits = [(shift, self.nodes[name].bit) for shift, name in enumerate(z_names)]
         return sum([bit << shift for shift, bit in z_bits])
 

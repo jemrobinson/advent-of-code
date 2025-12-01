@@ -1,7 +1,7 @@
 from advent_of_code_2024.plant_regions import GardenPlot
 
 
-def test_part_one():
+def test_part_one() -> None:
     plot_0 = GardenPlot("day-12.test-0.txt")
     assert plot_0.price() == 140
     plot_1 = GardenPlot("day-12.test-1.txt")
@@ -10,7 +10,7 @@ def test_part_one():
     assert plot_2.price() == 1930
 
 
-def test_part_two():
+def test_part_two() -> None:
     plot_0 = GardenPlot("day-12.test-0.txt")
     assert plot_0.price_discounted() == 80
     plot_1 = GardenPlot("day-12.test-1.txt")

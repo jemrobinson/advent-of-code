@@ -7,7 +7,7 @@ from advent_of_code_2024.grid_location import GridLocation
 
 
 class Matrix:
-    def __init__(self, array: np.ndarray) -> None:  # type: ignore[type-arg]
+    def __init__(self, array: np.ndarray) -> None:
         self.array = array
 
     def contains(self, location: GridLocation) -> bool:
@@ -15,7 +15,7 @@ class Matrix:
         valid_1 = bool(0 <= location.pos_1 < self.array.shape[1])
         return valid_0 and valid_1
 
-    def find(self, value: Any) -> list[GridLocation]:
+    def find(self, value: Any) -> list[GridLocation]:  # noqa: ANN401
         return [
             GridLocation(loc)
             for loc in zip(*np.where(self.array == value), strict=False)
@@ -29,6 +29,7 @@ class Matrix:
         return (int(self.array.shape[0] - 1), int(self.array.shape[1] - 1))
 
     def __str__(self) -> str:
+        """Define string representation of the matrix."""
         output = ""
         for iy in range(self.array.shape[0]):
             line = ""

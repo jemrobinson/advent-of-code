@@ -1,7 +1,7 @@
 from advent_of_code_2024.banana_market import BananaMarket, Buyer
 
 
-def test_part_one_buyer():
+def test_part_one_buyer() -> None:
     buyer = Buyer(123, 10)
     assert [buyer.secrets[idx] for idx in range(11)] == [
         123,
@@ -18,7 +18,7 @@ def test_part_one_buyer():
     ]
 
 
-def test_part_one_market():
+def test_part_one_market() -> None:
     market = BananaMarket("day-22.test-0.txt")
     assert [buyer.secrets[2000] for buyer in market.buyers] == [
         8685429,
@@ -29,7 +29,7 @@ def test_part_one_market():
     assert market.sum_buyer_secrets() == 37327623
 
 
-def test_part_two_buyer():
+def test_part_two_buyer() -> None:
     buyer = Buyer(123, 10)
     assert [
         (buyer.secrets[idx], buyer.prices[idx], buyer.price_diffs[idx])
@@ -49,7 +49,7 @@ def test_part_two_buyer():
     assert buyer.price_at_sequence((-1, -1, 0, 2)) == 6
 
 
-def test_part_two_market():
+def test_part_two_market() -> None:
     market = BananaMarket("day-22.test-1.txt")
     assert market.price_at_sequence((-2, 1, -1, 3)) == 23
     assert market.best_sequence() == (-2, 1, -1, 3)

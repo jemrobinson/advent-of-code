@@ -6,8 +6,8 @@ import pandas as pd
 from advent_of_code_2024.data_loaders import load_file_as_lines
 
 
-class Report(pd.Series):  # type: ignore[type-arg]
-    def __init__(self, *args: Any, **kwargs: Any):
+class Report(pd.Series):
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.threshold: int = 3
 
@@ -17,12 +17,12 @@ class Report(pd.Series):  # type: ignore[type-arg]
         all_dec = diffs[diffs < 0].shape == diffs.shape
         if not (all_inc or all_dec):
             return False
-        if any(diffs.abs() > self.threshold):
+        if any(diffs.abs() > self.threshold):  # noqa: SIM103
             return False
         return True
 
 
-class ReportWithDampener(pd.Series):  # type: ignore[type-arg]
+class ReportWithDampener(pd.Series):
     def is_safe(self) -> bool:
         for idx in range(self.size):
             subseries = self.drop(idx)

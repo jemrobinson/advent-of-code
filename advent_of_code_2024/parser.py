@@ -15,7 +15,6 @@ def parse_memory_string(data: str) -> Sequence[tuple[int, int]]:
 
 
 class MemoryLexer:
-
     # List of keywords
     keywords: ClassVar[dict[str, str]] = {
         "mul": "MUL",
@@ -48,7 +47,7 @@ class MemoryLexer:
 
     # Regular expression rules for more complicated tokens
     def t_NUMBER(self, t: lex.LexToken) -> lex.LexToken:  # noqa: N802
-        r"\d+"
+        r"""\d+"""  # noqa: D400, D415
         t.value = int(t.value)
         return t
 
@@ -85,35 +84,37 @@ class MemoryParser:
         self.enabled = True
 
     def p_func_implicit_add(self, p: yacc.YaccProduction) -> None:
-        """numexpr : numexpr numexpr"""
-        self.logger.debug(f"Performing an implicit add: {p[1]} + {p[2]}")
+        r"""numexpr : numexpr numexpr"""  # noqa: D400, D415
+        msg = f"Performing an implicit add: {p[1]} + {p[2]}"
+        self.logger.debug(msg)
         p[0] = p[1] + p[2]
 
     def p_func_enable(self, p: yacc.YaccProduction) -> None:
-        """numexpr : DO LPAREN RPAREN"""
-        self.logger.info(f"Applying an enable instruction: {p[1]}")
+        r"""numexpr : DO LPAREN RPAREN"""  # noqa: D400, D415
+        msg = f"Applying an enable instruction: {p[1]}"
+        self.logger.info(msg)
         self.enabled = True
         p[0] = 0
 
     def p_func_disable(self, p: yacc.YaccProduction) -> None:
-        """numexpr : DONT LPAREN RPAREN"""
-        self.logger.info(f"Applying a disable instruction: {p[1]}")
+        r"""numexpr : DONT LPAREN RPAREN"""  # noqa: D400, D415
+        msg = f"Applying a disable instruction: {p[1]}"
+        self.logger.info(msg)
         self.enabled = False
         p[0] = 0
 
     def p_func_multiply(self, p: yacc.YaccProduction) -> None:
-        """numexpr : MUL LPAREN NUMBER COMMA NUMBER RPAREN"""
-        self.logger.info(
-            f"{'Applying' if self.enabled else 'Ignoring'} a multiply instruction: {p[3]} * {p[5]}"
-        )
+        r"""numexpr : MUL LPAREN NUMBER COMMA NUMBER RPAREN"""  # noqa: D400, D415
+        msg = f"{'Applying' if self.enabled else 'Ignoring'} a multiply instruction: {p[3]} * {p[5]}"
+        self.logger.info(msg)
         p[0] = p[3] * p[5] if self.enabled else 0
 
     def p_numexpr_error(self, p: yacc.YaccProduction) -> None:
-        """numexpr : numexpr error"""
+        r"""numexpr : numexpr error"""  # noqa: D400, D415
         p[0] = p[1]
 
     def p_error(self, t: lex.LexToken) -> None:
-        self.logger.debug(f"Ignoring token {t}")
+        self.logger.debug("Ignoring token %s", t)
 
     def parse(self, input_data: str) -> int:
         return int(self.parser.parse(input_data))

@@ -5,26 +5,27 @@ from typing import Any
 
 
 class Node:
-    def __init__(self, value: Any) -> None:
+    def __init__(self, value: Any) -> None:  # noqa: ANN401
         self.value = value
 
-    def key(self) -> Any:
+    def key(self) -> Any:  # noqa: ANN401
         return self.value
 
     def heuristic(self, _: object) -> float:
         raise NotImplementedError
 
     def __eq__(self, other: object) -> bool:
+        """Equality operator for comparing two Nodes."""
         if not isinstance(other, Node):
             return False
-        if self.value == other.value:
-            return True
-        return False
+        return bool(self.value == other.value)
 
     def __hash__(self) -> int:
+        """Define hash of the node."""
         return hash(self.key())
 
     def __lt__(self, other: object) -> bool:
+        """Less than operator for sorting."""
         if not isinstance(other, Node):
             raise NotImplementedError
         return bool(self.value < other.value)
@@ -44,7 +45,7 @@ class Graph:
         self.graph[source][target] = distance
 
     def a_star(self, start: Node, target: Node) -> tuple[list[Node], float]:
-        """Implement the A* algorithm"""
+        """Implement the A* algorithm."""
         # Initialise the queue of nodes to visit
         # Priority is distance-from-start + estimated-distance-to-target
         queue = [(0, start)]
@@ -79,7 +80,7 @@ class Graph:
         return (path, distances.get(target, float("inf")))
 
     def bfs(self, start: Node) -> set[Node]:
-        """Implement breadth-first search (no queue priority)"""
+        """Implement breadth-first search (no queue priority)."""
         # Initialise the queue of nodes to visit
         queue = deque([start])
 
@@ -100,7 +101,7 @@ class Graph:
     def bron_kerbosch(
         self, r_nodes: set[Node], p_nodes: set[Node], x_nodes: set[Node]
     ) -> list[set[Node]]:
-        """Implement the Bron-Kerbosch algorithm without pivot"""
+        """Implement the Bron-Kerbosch algorithm without pivot."""
         output = []
         if not p_nodes and not x_nodes:
             return [r_nodes]
@@ -118,7 +119,7 @@ class Graph:
         return output
 
     def dijkstra(self, start: Node) -> dict[Node, float]:
-        """Implement Dijkstra's algorithm"""
+        """Implement Dijkstra's algorithm."""
         distances = {node: float("inf") for node in self.graph}
         distances[start] = 0
 
@@ -149,7 +150,7 @@ class Graph:
         return distances
 
     def maximal_cliques(self) -> list[set[Node]]:
-        """Use Bron-Kerbosch to return all maximal cliques"""
+        """Use Bron-Kerbosch to return all maximal cliques."""
         return self.bron_kerbosch(set(), set(self.nodes), set())
 
     def neighbours(self, node: Node) -> set[Node]:

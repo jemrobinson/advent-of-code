@@ -16,16 +16,17 @@ class GridLocation:
         self.pos_1 = int(location[1])
 
     def __add__(self, other: "GridLocation") -> "GridLocation":
+        """Add another GridLocation to this one."""
         return GridLocation([self.pos_0 + other.pos_0, self.pos_1 + other.pos_1])
 
     def __eq__(self, other: object) -> bool:
+        """Equality operator for comparing two GridLocations."""
         if not isinstance(other, GridLocation):
             return False
-        if self.as_tuple() == other.as_tuple():
-            return True
-        return False
+        return self.as_tuple() == other.as_tuple()
 
     def __lt__(self, other: object) -> bool:
+        """Less than operator for sorting."""
         if not isinstance(other, GridLocation):
             raise NotImplementedError
         if self.pos_0 != other.pos_0:
@@ -33,20 +34,25 @@ class GridLocation:
         return self.pos_1 < other.pos_1
 
     def __hash__(self) -> int:
+        """Define hash of the location."""
         return hash(self.as_tuple())
 
     def __mul__(self, other: object) -> "GridLocation":
+        """Multiply the location by an integer scalar."""
         return self.__rmul__(other)
 
     def __rmul__(self, other: object) -> "GridLocation":
+        """Multiply the location by an integer scalar."""
         if not isinstance(other, int):
             raise NotImplementedError
         return GridLocation([self.pos_0 * other, self.pos_1 * other])
 
     def __str__(self) -> str:
+        """Define string representation of the location."""
         return f"GridLocation({self.pos_0}, {self.pos_1})"
 
     def __sub__(self, other: "GridLocation") -> "GridLocation":
+        """Subtract another GridLocation from this one."""
         return GridLocation([self.pos_0 - other.pos_0, self.pos_1 - other.pos_1])
 
     def adjacent(self, other: "GridLocation") -> bool:

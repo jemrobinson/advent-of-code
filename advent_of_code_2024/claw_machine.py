@@ -42,7 +42,7 @@ class ClawMachine:
         rhs = np.array([p_x, p_y])
         # Result might have non-integer solutions
         result = np.linalg.solve(lhs, rhs)
-        n_presses_a, n_presses_b = int(round(result[0])), int(round(result[1]))
+        n_presses_a, n_presses_b = round(result[0]), round(result[1])
         # Check whether the rounded result is valid
         if self.is_valid(n_presses_a, n_presses_b):
             return (n_presses_a, n_presses_b, self.cost(n_presses_a, n_presses_b))
@@ -53,7 +53,7 @@ class ClawMachine:
         for n_presses_a in range(101):
             for n_presses_b in range(101):
                 if self.is_valid(n_presses_a, n_presses_b):
-                    solutions.append(
+                    solutions.append(  # noqa: PERF401
                         (n_presses_a, n_presses_b, self.cost(n_presses_a, n_presses_b))
                     )
         if not solutions:

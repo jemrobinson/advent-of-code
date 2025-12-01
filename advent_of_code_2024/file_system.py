@@ -12,13 +12,13 @@ class File(Block):
         self.id_ = id_
 
     def __eq__(self, other: object) -> bool:
+        """Equality operator for comparing two file blocks."""
         if not isinstance(other, File):
             return False
-        if self.id_ == other.id_:
-            return True
-        return False
+        return self.id_ == other.id_
 
     def __hash__(self) -> int:
+        """Define hash of the file block."""
         return hash(self.id_)
 
 
@@ -36,13 +36,11 @@ class FileSystem:
         output: list[Block] = []
         for char in self.disk_map:
             if is_file:
-                for _ in range(int(char)):
-                    output.append(File(file_id))
+                output.extend([File(file_id) for _ in range(int(char))])
                 file_id += 1
                 is_file = False
             else:
-                for _ in range(int(char)):
-                    output.append(Empty())
+                output.extend([Empty() for _ in range(int(char))])
                 is_file = True
         return output
 
@@ -71,7 +69,7 @@ class FileSystem:
     def compact_conservative(self) -> list[Block]:
         disk_map = self.expand_map()
         if not isinstance(disk_map[-1], File):
-            raise ValueError
+            raise TypeError
         file_id = disk_map[-1].id_
         while file_id >= 0:
             # Find location of last file
@@ -108,7 +106,7 @@ class FileSystem:
                     sequence for sequence in empty_sequences if sequence[0] >= file_size
                 )
                 if first_empty_start > file_start:
-                    raise ValueError
+                    raise ValueError  # noqa: TRY301
                 # Swap file with empty space
                 disk_map[first_empty_start : first_empty_start + file_size] = disk_map[
                     file_start : file_start + file_size

@@ -1,11 +1,11 @@
 from advent_of_code_2024.report import load_reports, load_reports_with_dampener
 
 
-def test_part_one():
+def test_part_one() -> None:
     reports = load_reports("day-2.test.csv")
     assert sum([report.is_safe() for report in reports]) == 2
 
 
-def test_part_two():
+def test_part_two() -> None:
     reports = load_reports_with_dampener("day-2.test.csv")
     assert sum([report.is_safe() for report in reports]) == 4

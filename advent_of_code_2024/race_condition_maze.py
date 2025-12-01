@@ -14,13 +14,14 @@ class RaceConditionNode(Node):
         return self.location.as_tuple()
 
     def __lt__(self, other: object) -> bool:
+        """Less than operator for sorting."""
         if not isinstance(other, RaceConditionNode):
             raise NotImplementedError
         return self.location < other.location
 
     @property
     def location(self) -> GridLocation:
-        return cast(GridLocation, self.value)
+        return cast("GridLocation", self.value)
 
     def manhattan(self, other: "RaceConditionNode") -> int:
         return self.location.manhattan(other.location)
@@ -60,14 +61,14 @@ class RaceConditionMaze:
         for node_1, d_from_start_1 in distances.items():
             for node_2, d_from_start_2 in distances.items():
                 d_nodes = node_1.manhattan(node_2)
-                if d_nodes <= n_picoseconds_disabled:
+                if d_nodes <= n_picoseconds_disabled:  # noqa: SIM102
                     if d_from_start_2 - d_from_start_1 - d_nodes >= minimum_time_saved:
                         n_cheats += 1
         return n_cheats
 
     def finite_node_distances(self) -> dict[RaceConditionNode, int]:
         return {
-            cast(RaceConditionNode, k): int(v)
+            cast("RaceConditionNode", k): int(v)
             for k, v in self.graph.dijkstra(self.start_node).items()
             if v != float("inf")
         }

@@ -1,3 +1,5 @@
+from contextlib import suppress
+
 import pandas as pd
 
 
@@ -17,10 +19,8 @@ def similarity(series_a: "pd.Series[int]", series_b: "pd.Series[int]") -> int:
     series_b_counts = series_b.value_counts()
     total = 0
     for item in series_a:
-        try:
+        with suppress(KeyError):
             total += series_b_counts.loc[item] * item
-        except KeyError:
-            pass
     return total
 
 

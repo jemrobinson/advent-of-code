@@ -1,7 +1,7 @@
 from advent_of_code_2024.race_condition_maze import RaceConditionMaze
 
 
-def test_part_one():
+def test_part_one() -> None:
     maze = RaceConditionMaze("day-20.test.txt")
     assert maze.n_cheats(n_picoseconds_disabled=2, minimum_time_saved=2) == 44
     assert maze.n_cheats(n_picoseconds_disabled=2, minimum_time_saved=10) == 10
@@ -11,7 +11,7 @@ def test_part_one():
     assert maze.n_cheats(n_picoseconds_disabled=2, minimum_time_saved=50) == 1
 
 
-def test_part_two():
+def test_part_two() -> None:
     maze = RaceConditionMaze("day-20.test.txt")
     assert maze.n_cheats(n_picoseconds_disabled=20, minimum_time_saved=55) == 193
     assert maze.n_cheats(n_picoseconds_disabled=20, minimum_time_saved=60) == 129

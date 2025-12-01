@@ -1,16 +1,18 @@
+#! /usr/bin/env python3
 import time
 from functools import reduce
 
 from advent_of_code_2024.antennae import load_antenna_sets
 
 
-def part_one():
+def part_one() -> None:
     start = time.monotonic()
     antennae = load_antenna_sets("day-8.txt")
     antinodes = reduce(set.union, [a.antinodes() for a in antennae])
     print("Day 8 part 1:", len(antinodes), f"in {time.monotonic() - start:.3f} seconds")
 
-def part_two():
+
+def part_two() -> None:
     start = time.monotonic()
     antennae = load_antenna_sets("day-8.txt")
     antinodes = reduce(

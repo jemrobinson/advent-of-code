@@ -15,6 +15,7 @@ class MazeNode(Node):
         super().__init__(value=(location, direction))
 
     def __lt__(self, other: object) -> bool:
+        """Less than operator for sorting."""
         if not isinstance(other, MazeNode):
             raise NotImplementedError
         if self.location != other.location:
@@ -25,14 +26,14 @@ class MazeNode(Node):
     def location(self) -> GridLocation:
         location = self.value[0]
         if not isinstance(location, GridLocation):
-            raise ValueError
+            raise TypeError
         return location
 
     @property
     def direction(self) -> GridVector:
         direction = self.value[1]
         if not isinstance(direction, GridVector):
-            raise ValueError
+            raise TypeError
         return direction
 
     def key(self) -> tuple[tuple[int, int], tuple[int, int]]:
@@ -75,7 +76,7 @@ class ReindeerMaze:
         # Get shortest distance from any end-state node
         # N.B. because distances_from_any_end_state_node started at the end location,
         # we have to reverse the direction
-        nodes = [cast(MazeNode, node) for node in self.graph.nodes]
+        nodes = [cast("MazeNode", node) for node in self.graph.nodes]
         distances_from_end = {
             node.reverse(): min(
                 end_dict[node] for end_dict in distances_from_any_end_state_node

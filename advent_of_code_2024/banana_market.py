@@ -10,11 +10,16 @@ class Buyer:
     def __init__(self, initial_secret: int, n_secrets: int) -> None:
         self.secrets = Buyer.generate_secrets(initial_secret, n_secrets)
         self.prices = [secret % 10 for secret in self.secrets]
-        self.price_diffs: list[int] = [None] + [p[1] - p[0] for p in pairwise(self.prices)]  # type: ignore[assignment]
-        self.diff_sequences: list[PriceSequence] = [None, None, None, None] + [  # type: ignore[assignment]
-            tuple(self.price_diffs[idx : idx + 4])  # type: ignore[misc]
-            for idx in range(1, len(self.price_diffs) - 3)
-        ]
+        self.price_diffs: list[int] = [None] + [
+            p[1] - p[0] for p in pairwise(self.prices)
+        ]  # type: ignore[assignment]
+        self.diff_sequences: list[PriceSequence] = (
+            [None, None, None, None]
+            + [  # type: ignore[assignment]
+                tuple(self.price_diffs[idx : idx + 4])  # type: ignore[misc]
+                for idx in range(1, len(self.price_diffs) - 3)
+            ]
+        )
 
     @staticmethod
     def generate_secrets(initial_secret: int, n_to_generate: int) -> list[int]:
