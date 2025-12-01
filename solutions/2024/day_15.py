@@ -1,0 +1,29 @@
+#! /usr/bin/env python3
+import time
+
+from advent_of_code.warehouse import LargeWarehouse, Warehouse
+
+
+def part_one() -> None:
+    start = time.monotonic()
+    warehouse = Warehouse("2024/day-15-moves.txt", "2024/day-15-warehouse.txt")
+    print(
+        "Day 15 part 1:",
+        warehouse.score_gps(),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
+
+
+def part_two() -> None:
+    start = time.monotonic()
+    warehouse = LargeWarehouse("2024/day-15-moves.txt", "2024/day-15-warehouse.txt")
+    print(
+        "Day 15 part 2:",
+        warehouse.score_gps(),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
+
+
+if __name__ == "__main__":
+    part_one()
+    part_two()

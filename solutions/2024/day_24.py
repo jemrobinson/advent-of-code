@@ -1,0 +1,29 @@
+#! /usr/bin/env python3
+import time
+
+from advent_of_code.logic_gates import Computer
+
+
+def part_one() -> None:
+    start = time.monotonic()
+    computer = Computer("2024/day-24.txt")
+    print(
+        "Day 24 part 1:",
+        computer.output(),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
+
+
+def part_two() -> None:
+    start = time.monotonic()
+    computer = Computer("2024/day-24.txt")
+    print(
+        "Day 24 part 2:",
+        computer.calculate_swaps(),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
+
+
+if __name__ == "__main__":
+    part_one()
+    part_two()

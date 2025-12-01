@@ -1,0 +1,29 @@
+#! /usr/bin/env python3
+import time
+
+from advent_of_code.race_condition_maze import RaceConditionMaze
+
+
+def part_one() -> None:
+    start = time.monotonic()
+    maze = RaceConditionMaze("2024/day-20.txt")
+    print(
+        "Day 20 part 1:",
+        maze.n_cheats(n_picoseconds_disabled=2, minimum_time_saved=100),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
+
+
+def part_two() -> None:
+    start = time.monotonic()
+    maze = RaceConditionMaze("2024/day-20.txt")
+    print(
+        "Day 20 part 2:",
+        maze.n_cheats(n_picoseconds_disabled=20, minimum_time_saved=100),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
+
+
+if __name__ == "__main__":
+    part_one()
+    part_two()
