@@ -15,7 +15,13 @@ def part_one() -> None:
 
 
 def part_two() -> None:
-    pass
+    start = time.monotonic()
+    dial = RotatingDial("2025/day-1.txt")
+    print(
+        "Day 1 part 2:",
+        dial.count_all_zeros(),
+        f"in {time.monotonic() - start:.3f} seconds",
+    )
 
 
 if __name__ == "__main__":
