@@ -1,23 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.plant_regions import GardenPlot
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=12, part=1)
+def part_one() -> int:
     plot = GardenPlot("2024/day-12.txt")
-    print("Day 12 part 1:", plot.price(), f"in {time.monotonic() - start:.3f} seconds")
+    return plot.price()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=12, part=2)
+def part_two() -> int:
     plot_2 = GardenPlot("2024/day-12.txt")
-    print(
-        "Day 12 part 2:",
-        plot_2.price_discounted(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return plot_2.price_discounted()
 
 
 if __name__ == "__main__":

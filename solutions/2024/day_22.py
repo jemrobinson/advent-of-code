@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.banana_market import BananaMarket
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=22, part=1)
+def part_one() -> int:
     market = BananaMarket("2024/day-22.txt")
-    print(
-        "Day 22 part 1:",
-        market.sum_buyer_secrets(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return market.sum_buyer_secrets()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=22, part=2)
+def part_two() -> int:
     market = BananaMarket("2024/day-22.txt")
-    print(
-        "Day 22 part 2:",
-        market.most_bananas(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return market.most_bananas()
 
 
 if __name__ == "__main__":

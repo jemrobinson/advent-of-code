@@ -1,24 +1,19 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.data_loaders import load_csv_as_df
 from advent_of_code.location_lists import distance_df, similarity_df
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=1, part=1)
+def part_one() -> int:
     df = load_csv_as_df("2024/day-1.csv")
-    print(
-        "Day 1 part 1:", distance_df(df), f"in {time.monotonic() - start:.3f} seconds"
-    )
+    return distance_df(df)
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=1, part=2)
+def part_two() -> int:
     df = load_csv_as_df("2024/day-1.csv")
-    print(
-        "Day 1 part 2:", similarity_df(df), f"in {time.monotonic() - start:.3f} seconds"
-    )
+    return similarity_df(df)
 
 
 if __name__ == "__main__":

@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.wordsearch import WordSearch, WordSearchSimple
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=4, part=1)
+def part_one() -> int:
     wordsearch = WordSearchSimple("2024/day-4.txt")
-    print(
-        "Day 4 part 1:",
-        wordsearch.search("XMAS"),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return wordsearch.search("XMAS")
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=4, part=2)
+def part_two() -> int:
     wordsearch = WordSearch("2024/day-4.txt")
-    print(
-        "Day 4 part 2:",
-        wordsearch.search_xmas(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return wordsearch.search_xmas()
 
 
 if __name__ == "__main__":

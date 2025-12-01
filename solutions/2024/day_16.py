@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.reindeer_maze import ReindeerMaze
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=16, part=1)
+def part_one() -> int:
     maze = ReindeerMaze("2024/day-16.txt")
-    print(
-        "Day 16 part 1:",
-        maze.shortest_path(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return maze.shortest_path()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=16, part=2)
+def part_two() -> int:
     maze = ReindeerMaze("2024/day-16.txt")
-    print(
-        "Day 16 part 2:",
-        maze.best_seats(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return maze.best_seats()
 
 
 if __name__ == "__main__":

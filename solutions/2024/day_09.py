@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.file_system import FileSystem
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=9, part=1)
+def part_one() -> int:
     file_system = FileSystem("2024/day-9.txt")
-    print(
-        "Day 9 part 1:",
-        file_system.checksum(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return file_system.checksum()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=9, part=2)
+def part_two() -> int:
     file_system = FileSystem("2024/day-9.txt")
-    print(
-        "Day 9 part 2:",
-        file_system.checksum(strategy="conservative"),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return file_system.checksum(strategy="conservative")
 
 
 if __name__ == "__main__":

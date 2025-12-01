@@ -1,17 +1,12 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.locks import LockKeyMatcher
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=25, part=1)
+def part_one() -> int:
     matcher = LockKeyMatcher("2024/day-25.txt")
-    print(
-        "Day 25 part 1:",
-        matcher.unique_pairs(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return matcher.unique_pairs()
 
 
 if __name__ == "__main__":

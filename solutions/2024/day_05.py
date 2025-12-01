@@ -1,31 +1,22 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.print_queue import PrintQueue
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=5, part=1)
+def part_one() -> int:
     queue = PrintQueue(
         rules_file="2024/day-5.rules.csv", updates_file="2024/day-5.updates.csv"
     )
-    print(
-        "Day 5 part 1:",
-        queue.score_ordered_updates(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return queue.score_ordered_updates()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=5, part=2)
+def part_two() -> int:
     queue = PrintQueue(
         rules_file="2024/day-5.rules.csv", updates_file="2024/day-5.updates.csv"
     )
-    print(
-        "Day 5 part 2:",
-        queue.score_unordered_updates(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return queue.score_unordered_updates()
 
 
 if __name__ == "__main__":

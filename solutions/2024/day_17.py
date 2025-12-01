@@ -1,25 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.three_bit_computer import ThreeBitComputer
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=17, part=1)
+def part_one() -> str:
     computer = ThreeBitComputer("2024/day-17.txt")
-    print(
-        "Day 17 part 1:", computer.run(), f"in {time.monotonic() - start:.3f} seconds"
-    )
+    return ",".join(map(str, computer.run()))
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=17, part=2)
+def part_two() -> int:
     computer = ThreeBitComputer("2024/day-17.txt")
-    print(
-        "Day 17 part 1:",
-        computer.find_register_a(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return computer.find_register_a()
 
 
 if __name__ == "__main__":
