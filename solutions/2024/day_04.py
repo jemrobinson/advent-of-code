@@ -6,7 +6,7 @@ from advent_of_code.wordsearch import WordSearch, WordSearchSimple
 
 def part_one() -> None:
     start = time.monotonic()
-    wordsearch = WordSearchSimple("day-4.txt")
+    wordsearch = WordSearchSimple("2024/day-4.txt")
     print(
         "Day 4 part 1:",
         wordsearch.search("XMAS"),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    wordsearch = WordSearch("day-4.txt")
+    wordsearch = WordSearch("2024/day-4.txt")
     print(
         "Day 4 part 2:",
         wordsearch.search_xmas(),

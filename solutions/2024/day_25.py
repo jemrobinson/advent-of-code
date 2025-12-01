@@ -6,7 +6,7 @@ from advent_of_code.locks import LockKeyMatcher
 
 def part_one() -> None:
     start = time.monotonic()
-    matcher = LockKeyMatcher("day-25.txt")
+    matcher = LockKeyMatcher("2024/day-25.txt")
     print(
         "Day 25 part 1:",
         matcher.unique_pairs(),

@@ -6,7 +6,7 @@ from advent_of_code.stones import StoneLine
 
 def part_one() -> None:
     start = time.monotonic()
-    stone_line = StoneLine("day-11.txt")
+    stone_line = StoneLine("2024/day-11.txt")
     print(
         "Day 11 part 1:",
         stone_line.score(25),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    stone_line = StoneLine("day-11.txt")
+    stone_line = StoneLine("2024/day-11.txt")
     print(
         "Day 11 part 2:",
         stone_line.score(75),

@@ -6,7 +6,7 @@ from advent_of_code.banana_market import BananaMarket
 
 def part_one() -> None:
     start = time.monotonic()
-    market = BananaMarket("day-22.txt")
+    market = BananaMarket("2024/day-22.txt")
     print(
         "Day 22 part 1:",
         market.sum_buyer_secrets(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    market = BananaMarket("day-22.txt")
+    market = BananaMarket("2024/day-22.txt")
     print(
         "Day 22 part 2:",
         market.most_bananas(),

@@ -6,7 +6,7 @@ from advent_of_code.keypad import KeypadSolver
 
 def part_one() -> None:
     start = time.monotonic()
-    solver = KeypadSolver("day-21.txt", num_directional=2)
+    solver = KeypadSolver("2024/day-21.txt", num_directional=2)
     print(
         "Day 21 part 1:",
         solver.total_complexity(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    solver = KeypadSolver("day-21.txt", num_directional=25)
+    solver = KeypadSolver("2024/day-21.txt", num_directional=25)
     print(
         "Day 21 part 2:",
         solver.total_complexity(),

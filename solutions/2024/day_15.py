@@ -6,7 +6,7 @@ from advent_of_code.warehouse import LargeWarehouse, Warehouse
 
 def part_one() -> None:
     start = time.monotonic()
-    warehouse = Warehouse("day-15-moves.txt", "day-15-warehouse.txt")
+    warehouse = Warehouse("2024/day-15-moves.txt", "2024/day-15-warehouse.txt")
     print(
         "Day 15 part 1:",
         warehouse.score_gps(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    warehouse = LargeWarehouse("day-15-moves.txt", "day-15-warehouse.txt")
+    warehouse = LargeWarehouse("2024/day-15-moves.txt", "2024/day-15-warehouse.txt")
     print(
         "Day 15 part 2:",
         warehouse.score_gps(),

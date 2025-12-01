@@ -7,7 +7,9 @@ from advent_of_code.data_loaders import load_file_as_lines
 
 def part_one() -> None:
     start = time.monotonic()
-    calibrations = [CalibrationSimple(line) for line in load_file_as_lines("day-7.txt")]
+    calibrations = [
+        CalibrationSimple(line) for line in load_file_as_lines("2024/day-7.txt")
+    ]
     total = sum(
         [calibration.output for calibration in calibrations if calibration.is_valid()]
     )
@@ -16,7 +18,9 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    calibrations = [CalibrationFull(line) for line in load_file_as_lines("day-7.txt")]
+    calibrations = [
+        CalibrationFull(line) for line in load_file_as_lines("2024/day-7.txt")
+    ]
     total = sum(
         [calibration.output for calibration in calibrations if calibration.is_valid()]
     )

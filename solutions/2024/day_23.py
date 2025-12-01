@@ -6,7 +6,7 @@ from advent_of_code.lan_party import LanParty
 
 def part_one() -> None:
     start = time.monotonic()
-    party = LanParty("day-23.txt")
+    party = LanParty("2024/day-23.txt")
     print(
         "Day 23 part 1:",
         party.count_triples_with_ts(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    party = LanParty("day-23.txt")
+    party = LanParty("2024/day-23.txt")
     print(
         "Day 23 part 2:",
         party.find_password(),

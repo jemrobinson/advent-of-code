@@ -6,7 +6,7 @@ from advent_of_code.towels import Towels
 
 def part_one() -> None:
     start = time.monotonic()
-    towels = Towels("day-19-patterns.txt", "day-19-designs.txt")
+    towels = Towels("2024/day-19-patterns.txt", "2024/day-19-designs.txt")
     print(
         "Day 19 part 1:",
         towels.count_possible(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    towels = Towels("day-19-patterns.txt", "day-19-designs.txt")
+    towels = Towels("2024/day-19-patterns.txt", "2024/day-19-designs.txt")
     print(
         "Day 19 part 2:",
         towels.count_combinations(),

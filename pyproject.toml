@@ -8,11 +8,10 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 classifiers = [
-  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
 ]
-license = { file = "LICENSE" }
+license = "GPL-3.0-or-later"
 dependencies = [
   "numpy>=2.3.5",
   "pandas>=2.3.3",
@@ -39,7 +38,7 @@ source = ["advent_of_code/"]
 
 [tool.coverage.run]
 relative_files = true
-omit= ["*/tests/*"]
+omit= ["*/test/*"]
 
 [tool.mypy]
 disallow_subclassing_any = false  # allow subclassing of types from third-party libraries
@@ -89,7 +88,7 @@ known-first-party = ["advent_of_code"]
 
 [tool.ruff.lint.per-file-ignores]
 # Ignore the following for tests only
-"tests/**/*" = [
+"test/**/*" = [
   "INP001",   # implicit namespace
   "PLR2004",  # magic values
   "S101",     # assertions
@@ -98,4 +97,8 @@ known-first-party = ["advent_of_code"]
 
 [tool.taskipy.tasks]
 format = "ruff format && ruff check --fix && mypy ."
-test2024 = "coverage run -m pytest ./tests/2024/ && coverage report"
+test2024 = "coverage run -m pytest ./test/2024/ && coverage report"
+solve2024 = "for DAY in $(seq -w 1 25); do python ./solutions/2024/day_${DAY}.py; done"
+
+[tool.uv]
+package = true

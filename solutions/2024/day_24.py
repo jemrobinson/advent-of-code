@@ -6,7 +6,7 @@ from advent_of_code.logic_gates import Computer
 
 def part_one() -> None:
     start = time.monotonic()
-    computer = Computer("day-24.txt")
+    computer = Computer("2024/day-24.txt")
     print(
         "Day 24 part 1:",
         computer.output(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    computer = Computer("day-24.txt")
+    computer = Computer("2024/day-24.txt")
     print(
         "Day 24 part 2:",
         computer.calculate_swaps(),

@@ -6,7 +6,7 @@ from advent_of_code.report import load_reports, load_reports_with_dampener
 
 def part_one() -> None:
     start = time.monotonic()
-    reports = load_reports("day-2.csv")
+    reports = load_reports("2024/day-2.csv")
     print(
         "Day 2 part 1:",
         sum([report.is_safe() for report in reports]),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    reports = load_reports_with_dampener("day-2.csv")
+    reports = load_reports_with_dampener("2024/day-2.csv")
     print(
         "Day 2 part 2:",
         sum([report.is_safe() for report in reports]),

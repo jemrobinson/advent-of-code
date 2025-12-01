@@ -6,7 +6,9 @@ from advent_of_code.print_queue import PrintQueue
 
 def part_one() -> None:
     start = time.monotonic()
-    queue = PrintQueue(rules_file="day-5.rules.csv", updates_file="day-5.updates.csv")
+    queue = PrintQueue(
+        rules_file="2024/day-5.rules.csv", updates_file="2024/day-5.updates.csv"
+    )
     print(
         "Day 5 part 1:",
         queue.score_ordered_updates(),
@@ -16,7 +18,9 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    queue = PrintQueue(rules_file="day-5.rules.csv", updates_file="day-5.updates.csv")
+    queue = PrintQueue(
+        rules_file="2024/day-5.rules.csv", updates_file="2024/day-5.updates.csv"
+    )
     print(
         "Day 5 part 2:",
         queue.score_unordered_updates(),

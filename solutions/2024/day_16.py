@@ -6,7 +6,7 @@ from advent_of_code.reindeer_maze import ReindeerMaze
 
 def part_one() -> None:
     start = time.monotonic()
-    maze = ReindeerMaze("day-16.txt")
+    maze = ReindeerMaze("2024/day-16.txt")
     print(
         "Day 16 part 1:",
         maze.shortest_path(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    maze = ReindeerMaze("day-16.txt")
+    maze = ReindeerMaze("2024/day-16.txt")
     print(
         "Day 16 part 2:",
         maze.best_seats(),

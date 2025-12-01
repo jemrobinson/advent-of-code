@@ -6,7 +6,7 @@ from advent_of_code.claw_machine import get_claw_machines
 
 def part_one() -> None:
     start = time.monotonic()
-    machines = get_claw_machines("day-13.txt")
+    machines = get_claw_machines("2024/day-13.txt")
     solutions = [machine.solve(use_brute_force=True) for machine in machines]
     prizes = list(filter(None, solutions))
     print(
@@ -18,7 +18,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    machines = get_claw_machines("day-13.txt", offset=10000000000000)
+    machines = get_claw_machines("2024/day-13.txt", offset=10000000000000)
     solutions = [machine.solve() for machine in machines]
     prizes = list(filter(None, solutions))
     print(

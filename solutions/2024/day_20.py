@@ -6,7 +6,7 @@ from advent_of_code.race_condition_maze import RaceConditionMaze
 
 def part_one() -> None:
     start = time.monotonic()
-    maze = RaceConditionMaze("day-20.txt")
+    maze = RaceConditionMaze("2024/day-20.txt")
     print(
         "Day 20 part 1:",
         maze.n_cheats(n_picoseconds_disabled=2, minimum_time_saved=100),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    maze = RaceConditionMaze("day-20.txt")
+    maze = RaceConditionMaze("2024/day-20.txt")
     print(
         "Day 20 part 2:",
         maze.n_cheats(n_picoseconds_disabled=20, minimum_time_saved=100),

@@ -6,7 +6,7 @@ from advent_of_code.file_system import FileSystem
 
 def part_one() -> None:
     start = time.monotonic()
-    file_system = FileSystem("day-9.txt")
+    file_system = FileSystem("2024/day-9.txt")
     print(
         "Day 9 part 1:",
         file_system.checksum(),
@@ -16,7 +16,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    file_system = FileSystem("day-9.txt")
+    file_system = FileSystem("2024/day-9.txt")
     print(
         "Day 9 part 2:",
         file_system.checksum(strategy="conservative"),

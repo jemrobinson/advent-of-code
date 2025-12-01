@@ -6,7 +6,7 @@ from advent_of_code.three_bit_computer import ThreeBitComputer
 
 def part_one() -> None:
     start = time.monotonic()
-    computer = ThreeBitComputer("day-17.txt")
+    computer = ThreeBitComputer("2024/day-17.txt")
     print(
         "Day 17 part 1:", computer.run(), f"in {time.monotonic() - start:.3f} seconds"
     )
@@ -14,7 +14,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    computer = ThreeBitComputer("day-17.txt")
+    computer = ThreeBitComputer("2024/day-17.txt")
     print(
         "Day 17 part 1:",
         computer.find_register_a(),

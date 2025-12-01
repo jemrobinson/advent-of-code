@@ -6,7 +6,7 @@ from advent_of_code.topographic_map import TopographicMap
 
 def part_one() -> None:
     start = time.monotonic()
-    topo_map = TopographicMap("day-10.txt")
+    topo_map = TopographicMap("2024/day-10.txt")
     print(
         "Day 10 part 1:", topo_map.score(), f"in {time.monotonic() - start:.3f} seconds"
     )
@@ -14,7 +14,7 @@ def part_one() -> None:
 
 def part_two() -> None:
     start = time.monotonic()
-    topo_map = TopographicMap("day-10.txt")
+    topo_map = TopographicMap("2024/day-10.txt")
     print(
         "Day 10 part 2:",
         topo_map.rating(),
