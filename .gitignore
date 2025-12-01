@@ -163,8 +163,10 @@ cython_debug/
 
 
 # Data
-data/*
-!data/*test*
+data/2024/*
+!data/2024/*test*
+data/2025/*
+!data/2025/*test*
 
 # MacOS
 **/.DS_Store

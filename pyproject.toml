@@ -94,10 +94,15 @@ known-first-party = ["advent_of_code"]
   "S101",     # assertions
   "TID252",   # relative imports
 ]
+# Ignore module naming for solutions
+"solutions/**/*" = [
+  "N999", # module name
+]
 
 [tool.taskipy.tasks]
-format = "ruff format && ruff check --fix && mypy ."
+format = "ruff format && ruff check --fix && mypy src"
 test2024 = "coverage run -m pytest ./test/2024/ && coverage report"
+test2025 = "coverage run -m pytest ./test/2025/ && coverage report"
 solve2024 = "for DAY in $(seq -w 1 25); do python ./solutions/2024/day_${DAY}.py; done"
 
 [tool.uv]
