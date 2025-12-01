@@ -37,6 +37,8 @@ class RobotGrid:
         ]
         self.width = width
         self.height = height
+        self.output_folder = Path("data/2024/output")
+        self.output_folder.mkdir(parents=True, exist_ok=True)
 
     def count_robots(self, idx_quadrant: int) -> int:
         quadrant = self.quadrants[idx_quadrant]
@@ -90,7 +92,8 @@ class RobotGrid:
 
             # Draw the positions if we got a match
             if draw:
-                with Path(f"trees/robots_{idx_step}.txt").open("w") as f_out:
+                output_path = self.output_folder / f"robots_{idx_step}_shape.txt"
+                with output_path.open("w") as f_out:
                     f_out.writelines(self.draw_positions())
                 return idx_step
 
@@ -110,7 +113,8 @@ class RobotGrid:
 
             # If the number of adjacent robots is above threshold then stop
             if adjacency > threshold:
-                with Path(f"trees/robots_{idx_step}.txt").open("w") as f_out:
+                output_path = self.output_folder / f"robots_{idx_step}_adjacency.txt"
+                with output_path.open("w") as f_out:
                     f_out.writelines(self.draw_positions())
                 return idx_step
 
@@ -131,7 +135,10 @@ class RobotGrid:
 
             # If the number of non-adjacent robots is below threshold then stop
             if non_adjacency < threshold:
-                with Path(f"trees/robots_{idx_step}.txt").open("w") as f_out:
+                output_path = (
+                    self.output_folder / f"robots_{idx_step}_non_adjacency.txt"
+                )
+                with output_path.open("w") as f_out:
                     f_out.writelines(self.draw_positions())
                 return idx_step
 
