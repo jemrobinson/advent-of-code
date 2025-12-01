@@ -10,10 +10,13 @@ class RotatingDial:
         self.start = 50
 
     def count_zeros(self) -> int:
-        return sum(1 for pos in self.get_positions() if pos == 0)
+        return sum(1 for pos in self.rotate()[0] if pos == 0)
 
     def count_all_zeros(self) -> int:
-        zeros = 0
+        return self.rotate()[1]
+
+    def rotate(self) -> tuple[list[int], int]:
+        positions, zeros = [self.start], 0
         position = self.start
         for instr in self.instructions:
             sign = 1 if instr > 0 else -1
@@ -21,10 +24,5 @@ class RotatingDial:
                 position = (position + sign) % 100
                 if position == 0:
                     zeros += 1
-        return zeros
-
-    def get_positions(self) -> list[int]:
-        positions = [self.start]
-        for instr in self.instructions:
-            positions.append((positions[-1] + instr) % 100)
-        return positions
+            positions.append(position)
+        return (positions, zeros)
