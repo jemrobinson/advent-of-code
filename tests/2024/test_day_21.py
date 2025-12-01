@@ -2,7 +2,7 @@ from advent_of_code.keypad import KeypadSolver
 
 
 def test_part_one() -> None:
-    solver = KeypadSolver("day-21.test.txt", num_directional=2)
+    solver = KeypadSolver("2024/day-21.test.txt", num_directional=2)
     assert solver.complexity(solver.codes[0]) == 68 * 29
     assert solver.complexity(solver.codes[1]) == 60 * 980
     assert solver.complexity(solver.codes[2]) == 68 * 179

@@ -19,7 +19,7 @@ def test_part_one_buyer() -> None:
 
 
 def test_part_one_market() -> None:
-    market = BananaMarket("day-22.test-0.txt")
+    market = BananaMarket("2024/day-22.test-0.txt")
     assert [buyer.secrets[2000] for buyer in market.buyers] == [
         8685429,
         4700978,
@@ -50,7 +50,7 @@ def test_part_two_buyer() -> None:
 
 
 def test_part_two_market() -> None:
-    market = BananaMarket("day-22.test-1.txt")
+    market = BananaMarket("2024/day-22.test-1.txt")
     assert market.price_at_sequence((-2, 1, -1, 3)) == 23
     assert market.best_sequence() == (-2, 1, -1, 3)
     assert market.most_bananas() == 23

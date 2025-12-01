@@ -3,12 +3,12 @@ from advent_of_code.parser import MemoryParser, parse_memory_string
 
 
 def test_part_one() -> None:
-    memory = load_file_as_string("day-3.test-1.txt")
+    memory = load_file_as_string("2024/day-3.test-1.txt")
     instructions = parse_memory_string(memory)
     assert (sum([x * y for x, y in instructions])) == 161
 
 
 def test_part_two() -> None:
-    memory = load_file_as_string("day-3.test-2.txt")
+    memory = load_file_as_string("2024/day-3.test-2.txt")
     parser = MemoryParser()
     assert parser.parse(memory) == 48

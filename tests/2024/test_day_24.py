@@ -2,7 +2,7 @@ from advent_of_code.logic_gates import Computer
 
 
 def test_part_one() -> None:
-    computer_0 = Computer("day-24.test-0.txt")
+    computer_0 = Computer("2024/day-24.test-0.txt")
     assert computer_0.output() == 4
-    computer_1 = Computer("day-24.test-1.txt")
+    computer_1 = Computer("2024/day-24.test-1.txt")
     assert computer_1.output() == 2024
