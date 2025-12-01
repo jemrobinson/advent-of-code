@@ -1,4 +1,4 @@
-from advent_of_code_2024.logic_gates import Computer
+from advent_of_code.logic_gates import Computer
 
 
 def test_part_one() -> None:

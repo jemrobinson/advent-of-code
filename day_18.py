@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.pushdown_maze import PushdownMaze
+from advent_of_code.pushdown_maze import PushdownMaze
 
 
 def part_one() -> None:

@@ -1,4 +1,4 @@
-from advent_of_code_2024.file_system import FileSystem
+from advent_of_code.file_system import FileSystem
 
 
 def test_part_one() -> None:

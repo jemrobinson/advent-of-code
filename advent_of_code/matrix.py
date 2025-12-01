@@ -3,7 +3,7 @@ from typing import Any
 
 import numpy as np
 
-from advent_of_code_2024.grid_location import GridLocation
+from advent_of_code.grid_location import GridLocation
 
 
 class Matrix:

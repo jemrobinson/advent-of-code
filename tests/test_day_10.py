@@ -1,4 +1,4 @@
-from advent_of_code_2024.topographic_map import TopographicMap
+from advent_of_code.topographic_map import TopographicMap
 
 
 def test_part_one() -> None:

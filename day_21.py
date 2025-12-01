@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.keypad import KeypadSolver
+from advent_of_code.keypad import KeypadSolver
 
 
 def part_one() -> None:

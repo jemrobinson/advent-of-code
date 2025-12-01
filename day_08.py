@@ -2,7 +2,7 @@
 import time
 from functools import reduce
 
-from advent_of_code_2024.antennae import load_antenna_sets
+from advent_of_code.antennae import load_antenna_sets
 
 
 def part_one() -> None:

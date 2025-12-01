@@ -1,4 +1,4 @@
-from advent_of_code_2024.robots import RobotGrid
+from advent_of_code.robots import RobotGrid
 
 
 def test_part_one() -> None:

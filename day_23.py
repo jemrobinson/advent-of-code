@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.lan_party import LanParty
+from advent_of_code.lan_party import LanParty
 
 
 def part_one() -> None:

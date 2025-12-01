@@ -35,7 +35,7 @@ dev = [
 ]
 
 [tool.coverage.paths]
-source = ["advent_of_code_2024/"]
+source = ["advent_of_code/"]
 
 [tool.coverage.run]
 relative_files = true
@@ -45,7 +45,7 @@ omit= [
 
 [tool.mypy]
 disallow_subclassing_any = false  # allow subclassing of types from third-party libraries
-files = "advent_of_code_2024"     # run mypy over this directory
+files = "advent_of_code"     # run mypy over this directory
 mypy_path = "typings"             # use this directory for stubs
 plugins = ["pydantic.mypy"]       # enable the pydantic plugin
 strict = true                     # enable all optional error checking flags
@@ -59,7 +59,6 @@ addopts = [
   "-vvv",
   "--import-mode=importlib",
   "--disable-warnings",
-  "--ignore=advent_of_code_2024/resources/*",
 ]
 
 [tool.ruff.lint]
@@ -88,7 +87,7 @@ ban-relative-imports = "parents"
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
-known-first-party = ["advent_of_code_2024"]
+known-first-party = ["advent_of_code"]
 
 [tool.ruff.lint.per-file-ignores]
 # Ignore the following for tests only

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.file_system import FileSystem
+from advent_of_code.file_system import FileSystem
 
 
 def part_one() -> None:

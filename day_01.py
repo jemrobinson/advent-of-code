@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.data_loaders import load_csv_as_df
-from advent_of_code_2024.location_lists import distance_df, similarity_df
+from advent_of_code.data_loaders import load_csv_as_df
+from advent_of_code.location_lists import distance_df, similarity_df
 
 
 def part_one() -> None:

@@ -1,5 +1,5 @@
-from advent_of_code_2024.calibration import CalibrationFull, CalibrationSimple
-from advent_of_code_2024.data_loaders import load_file_as_lines
+from advent_of_code.calibration import CalibrationFull, CalibrationSimple
+from advent_of_code.data_loaders import load_file_as_lines
 
 
 def test_part_one() -> None:

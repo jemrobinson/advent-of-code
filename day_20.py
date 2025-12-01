@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.race_condition_maze import RaceConditionMaze
+from advent_of_code.race_condition_maze import RaceConditionMaze
 
 
 def part_one() -> None:

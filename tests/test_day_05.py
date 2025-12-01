@@ -1,4 +1,4 @@
-from advent_of_code_2024.print_queue import PrintQueue
+from advent_of_code.print_queue import PrintQueue
 
 
 def test_part_one() -> None:

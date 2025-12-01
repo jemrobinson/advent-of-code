@@ -1,4 +1,4 @@
-from advent_of_code_2024.towels import Towels
+from advent_of_code.towels import Towels
 
 
 def test_part_one() -> None:

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.three_bit_computer import ThreeBitComputer
+from advent_of_code.three_bit_computer import ThreeBitComputer
 
 
 def part_one() -> None:

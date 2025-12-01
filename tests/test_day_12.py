@@ -1,4 +1,4 @@
-from advent_of_code_2024.plant_regions import GardenPlot
+from advent_of_code.plant_regions import GardenPlot
 
 
 def test_part_one() -> None:

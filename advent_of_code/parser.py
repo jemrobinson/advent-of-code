@@ -5,7 +5,7 @@ from typing import Any, ClassVar
 
 from ply import lex, yacc
 
-from advent_of_code_2024.utility import as_int
+from advent_of_code.utility import as_int
 
 
 def parse_memory_string(data: str) -> Sequence[tuple[int, int]]:
@@ -84,33 +84,33 @@ class MemoryParser:
         self.enabled = True
 
     def p_func_implicit_add(self, p: yacc.YaccProduction) -> None:
-        r"""numexpr : numexpr numexpr"""  # noqa: D400, D415
+        r"""numexpr : numexpr numexpr"""  # noqa: D400, D403, D415
         msg = f"Performing an implicit add: {p[1]} + {p[2]}"
         self.logger.debug(msg)
         p[0] = p[1] + p[2]
 
     def p_func_enable(self, p: yacc.YaccProduction) -> None:
-        r"""numexpr : DO LPAREN RPAREN"""  # noqa: D400, D415
+        r"""numexpr : DO LPAREN RPAREN"""  # noqa: D400, D403, D415
         msg = f"Applying an enable instruction: {p[1]}"
         self.logger.info(msg)
         self.enabled = True
         p[0] = 0
 
     def p_func_disable(self, p: yacc.YaccProduction) -> None:
-        r"""numexpr : DONT LPAREN RPAREN"""  # noqa: D400, D415
+        r"""numexpr : DONT LPAREN RPAREN"""  # noqa: D400, D403, D415
         msg = f"Applying a disable instruction: {p[1]}"
         self.logger.info(msg)
         self.enabled = False
         p[0] = 0
 
     def p_func_multiply(self, p: yacc.YaccProduction) -> None:
-        r"""numexpr : MUL LPAREN NUMBER COMMA NUMBER RPAREN"""  # noqa: D400, D415
+        r"""numexpr : MUL LPAREN NUMBER COMMA NUMBER RPAREN"""  # noqa: D400, D403, D415
         msg = f"{'Applying' if self.enabled else 'Ignoring'} a multiply instruction: {p[3]} * {p[5]}"
         self.logger.info(msg)
         p[0] = p[3] * p[5] if self.enabled else 0
 
     def p_numexpr_error(self, p: yacc.YaccProduction) -> None:
-        r"""numexpr : numexpr error"""  # noqa: D400, D415
+        r"""numexpr : numexpr error"""  # noqa: D400, D403, D415
         p[0] = p[1]
 
     def p_error(self, t: lex.LexToken) -> None:

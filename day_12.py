@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.plant_regions import GardenPlot
+from advent_of_code.plant_regions import GardenPlot
 
 
 def part_one() -> None:

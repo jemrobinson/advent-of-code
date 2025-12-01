@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.stones import StoneLine
+from advent_of_code.stones import StoneLine
 
 
 def part_one() -> None:

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.towels import Towels
+from advent_of_code.towels import Towels
 
 
 def part_one() -> None:

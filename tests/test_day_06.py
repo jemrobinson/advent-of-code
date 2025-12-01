@@ -1,4 +1,4 @@
-from advent_of_code_2024.lab_maze import LabMaze
+from advent_of_code.lab_maze import LabMaze
 
 
 def test_part_one() -> None:

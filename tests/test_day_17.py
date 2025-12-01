@@ -1,4 +1,4 @@
-from advent_of_code_2024.three_bit_computer import ThreeBitComputer
+from advent_of_code.three_bit_computer import ThreeBitComputer
 
 
 def test_part_one() -> None:

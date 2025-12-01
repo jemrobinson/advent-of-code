@@ -1,4 +1,4 @@
-from advent_of_code_2024.wordsearch import WordSearch, WordSearchSimple
+from advent_of_code.wordsearch import WordSearch, WordSearchSimple
 
 
 def test_part_one() -> None:

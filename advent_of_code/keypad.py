@@ -2,9 +2,9 @@ from collections import defaultdict
 from functools import lru_cache
 from itertools import pairwise, product
 
-from advent_of_code_2024.data_loaders import load_file_as_lines
-from advent_of_code_2024.graph import Node
-from advent_of_code_2024.grid_location import GridLocation
+from advent_of_code.data_loaders import load_file_as_lines
+from advent_of_code.graph import Node
+from advent_of_code.grid_location import GridLocation
 
 
 class ButtonNode(Node):

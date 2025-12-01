@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.reindeer_maze import ReindeerMaze
+from advent_of_code.reindeer_maze import ReindeerMaze
 
 
 def part_one() -> None:

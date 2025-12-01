@@ -1,4 +1,4 @@
-from advent_of_code_2024.reindeer_maze import ReindeerMaze
+from advent_of_code.reindeer_maze import ReindeerMaze
 
 
 def test_part_one() -> None:

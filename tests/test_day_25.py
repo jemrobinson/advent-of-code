@@ -1,4 +1,4 @@
-from advent_of_code_2024.locks import LockKeyMatcher
+from advent_of_code.locks import LockKeyMatcher
 
 
 def test_part_one() -> None:

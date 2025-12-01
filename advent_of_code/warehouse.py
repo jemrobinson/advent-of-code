@@ -2,13 +2,13 @@ import copy
 
 import numpy as np
 
-from advent_of_code_2024.data_loaders import (
+from advent_of_code.data_loaders import (
     load_file_as_array,
     load_file_as_lines,
     load_file_as_string,
 )
-from advent_of_code_2024.grid_location import GridLocation
-from advent_of_code_2024.matrix import StrMatrix
+from advent_of_code.grid_location import GridLocation
+from advent_of_code.matrix import StrMatrix
 
 
 class Warehouse:

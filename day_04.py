@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.wordsearch import WordSearch, WordSearchSimple
+from advent_of_code.wordsearch import WordSearch, WordSearchSimple
 
 
 def part_one() -> None:

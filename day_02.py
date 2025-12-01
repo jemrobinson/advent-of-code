@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.report import load_reports, load_reports_with_dampener
+from advent_of_code.report import load_reports, load_reports_with_dampener
 
 
 def part_one() -> None:

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.print_queue import PrintQueue
+from advent_of_code.print_queue import PrintQueue
 
 
 def part_one() -> None:

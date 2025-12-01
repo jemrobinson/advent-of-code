@@ -1,4 +1,4 @@
-from advent_of_code_2024.banana_market import BananaMarket, Buyer
+from advent_of_code.banana_market import BananaMarket, Buyer
 
 
 def test_part_one_buyer() -> None:

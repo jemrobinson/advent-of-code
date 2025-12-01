@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.warehouse import LargeWarehouse, Warehouse
+from advent_of_code.warehouse import LargeWarehouse, Warehouse
 
 
 def part_one() -> None:

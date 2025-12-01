@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.claw_machine import get_claw_machines
+from advent_of_code.claw_machine import get_claw_machines
 
 
 def part_one() -> None:

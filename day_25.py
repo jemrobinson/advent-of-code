@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.locks import LockKeyMatcher
+from advent_of_code.locks import LockKeyMatcher
 
 
 def part_one() -> None:

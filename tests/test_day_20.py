@@ -1,4 +1,4 @@
-from advent_of_code_2024.race_condition_maze import RaceConditionMaze
+from advent_of_code.race_condition_maze import RaceConditionMaze
 
 
 def test_part_one() -> None:

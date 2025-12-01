@@ -1,4 +1,4 @@
-from advent_of_code_2024.warehouse import LargeWarehouse, Warehouse
+from advent_of_code.warehouse import LargeWarehouse, Warehouse
 
 
 def test_part_one() -> None:

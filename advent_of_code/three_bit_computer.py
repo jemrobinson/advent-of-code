@@ -1,4 +1,4 @@
-from advent_of_code_2024.data_loaders import load_file_as_lines
+from advent_of_code.data_loaders import load_file_as_lines
 
 
 class ThreeBitComputer:

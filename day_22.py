@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.banana_market import BananaMarket
+from advent_of_code.banana_market import BananaMarket
 
 
 def part_one() -> None:

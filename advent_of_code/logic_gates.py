@@ -4,7 +4,7 @@ from functools import reduce
 from operator import iadd
 from typing import Any
 
-from advent_of_code_2024.data_loaders import load_file_as_blocks
+from advent_of_code.data_loaders import load_file_as_blocks
 
 
 class SwapError(Exception):

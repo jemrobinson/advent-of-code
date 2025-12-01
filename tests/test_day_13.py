@@ -1,4 +1,4 @@
-from advent_of_code_2024.claw_machine import get_claw_machines
+from advent_of_code.claw_machine import get_claw_machines
 
 
 def test_part_one() -> None:

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import time
 
-from advent_of_code_2024.topographic_map import TopographicMap
+from advent_of_code.topographic_map import TopographicMap
 
 
 def part_one() -> None:

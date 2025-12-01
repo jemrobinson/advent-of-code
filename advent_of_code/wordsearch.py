@@ -1,5 +1,5 @@
-from advent_of_code_2024.data_loaders import load_file_as_array, load_file_as_lines
-from advent_of_code_2024.utility import count
+from advent_of_code.data_loaders import load_file_as_array, load_file_as_lines
+from advent_of_code.utility import count
 
 
 class WordSearchSimple:

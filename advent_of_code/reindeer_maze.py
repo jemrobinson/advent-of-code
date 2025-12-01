@@ -1,13 +1,13 @@
 from typing import cast
 
-from advent_of_code_2024.data_loaders import load_file_as_array
-from advent_of_code_2024.graph import Graph, Node
-from advent_of_code_2024.grid_location import (
+from advent_of_code.data_loaders import load_file_as_array
+from advent_of_code.graph import Graph, Node
+from advent_of_code.grid_location import (
     GridLocation,
     GridVector,
     grid_vectors,
 )
-from advent_of_code_2024.matrix import StrMatrix
+from advent_of_code.matrix import StrMatrix
 
 
 class MazeNode(Node):
