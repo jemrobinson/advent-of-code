@@ -1,25 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.topographic_map import TopographicMap
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=10, part=1)
+def part_one() -> int:
     topo_map = TopographicMap("2024/day-10.txt")
-    print(
-        "Day 10 part 1:", topo_map.score(), f"in {time.monotonic() - start:.3f} seconds"
-    )
+    return topo_map.score()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=10, part=2)
+def part_two() -> int:
     topo_map = TopographicMap("2024/day-10.txt")
-    print(
-        "Day 10 part 2:",
-        topo_map.rating(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return topo_map.rating()
 
 
 if __name__ == "__main__":

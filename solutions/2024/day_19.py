@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.towels import Towels
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=19, part=1)
+def part_one() -> int:
     towels = Towels("2024/day-19-patterns.txt", "2024/day-19-designs.txt")
-    print(
-        "Day 19 part 1:",
-        towels.count_possible(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return towels.count_possible()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=19, part=2)
+def part_two() -> int:
     towels = Towels("2024/day-19-patterns.txt", "2024/day-19-designs.txt")
-    print(
-        "Day 19 part 2:",
-        towels.count_combinations(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return towels.count_combinations()
 
 
 if __name__ == "__main__":

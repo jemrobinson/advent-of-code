@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.rotating_dial import RotatingDial
 
 
+@timed_solution(day=1, part=1)
 def part_one() -> None:
-    start = time.monotonic()
     dial = RotatingDial("2025/day-1.txt")
-    print(
-        "Day 1 part 1:",
-        dial.count_zeros(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return dial.count_zeros()
 
 
+@timed_solution(day=1, part=2)
 def part_two() -> None:
-    start = time.monotonic()
     dial = RotatingDial("2025/day-1.txt")
-    print(
-        "Day 1 part 2:",
-        dial.count_all_zeros(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return dial.count_all_zeros()
 
 
 if __name__ == "__main__":

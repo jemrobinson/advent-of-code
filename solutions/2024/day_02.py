@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.report import load_reports, load_reports_with_dampener
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=2, part=1)
+def part_one() -> int:
     reports = load_reports("2024/day-2.csv")
-    print(
-        "Day 2 part 1:",
-        sum([report.is_safe() for report in reports]),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return sum([report.is_safe() for report in reports])
 
 
+@timed_solution(day=2, part=2)
 def part_two() -> None:
-    start = time.monotonic()
     reports = load_reports_with_dampener("2024/day-2.csv")
-    print(
-        "Day 2 part 2:",
-        sum([report.is_safe() for report in reports]),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return sum([report.is_safe() for report in reports])
 
 
 if __name__ == "__main__":

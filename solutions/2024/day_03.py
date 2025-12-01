@@ -1,31 +1,23 @@
 #! /usr/bin/env python3
 import logging
-import time
 
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.data_loaders import load_file_as_string
 from advent_of_code.parser import MemoryParser, parse_memory_string
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=3, part=1)
+def part_one() -> int:
     memory = load_file_as_string("2024/day-3.txt")
     instructions = parse_memory_string(memory)
-    print(
-        "Day 3 part 1:",
-        sum([x * y for x, y in instructions]),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return sum([x * y for x, y in instructions])
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=3, part=2)
+def part_two() -> int:
     memory = load_file_as_string("2024/day-3.txt")
     parser = MemoryParser()
-    print(
-        "Day 3 part 2:",
-        parser.parse(memory),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return parser.parse(memory)
 
 
 if __name__ == "__main__":

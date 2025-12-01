@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.lan_party import LanParty
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=23, part=1)
+def part_one() -> int:
     party = LanParty("2024/day-23.txt")
-    print(
-        "Day 23 part 1:",
-        party.count_triples_with_ts(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return party.count_triples_with_ts()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=23, part=2)
+def part_two() -> str:
     party = LanParty("2024/day-23.txt")
-    print(
-        "Day 23 part 2:",
-        party.find_password(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return party.find_password()
 
 
 if __name__ == "__main__":

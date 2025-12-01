@@ -1,27 +1,18 @@
 #! /usr/bin/env python3
-import time
-
+from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.logic_gates import Computer
 
 
-def part_one() -> None:
-    start = time.monotonic()
+@timed_solution(day=24, part=1)
+def part_one() -> int:
     computer = Computer("2024/day-24.txt")
-    print(
-        "Day 24 part 1:",
-        computer.output(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return computer.output()
 
 
-def part_two() -> None:
-    start = time.monotonic()
+@timed_solution(day=24, part=2)
+def part_two() -> str:
     computer = Computer("2024/day-24.txt")
-    print(
-        "Day 24 part 2:",
-        computer.calculate_swaps(),
-        f"in {time.monotonic() - start:.3f} seconds",
-    )
+    return computer.calculate_swaps()
 
 
 if __name__ == "__main__":
