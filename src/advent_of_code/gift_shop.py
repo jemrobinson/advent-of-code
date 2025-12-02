@@ -20,5 +20,5 @@ class GiftShop:
         pattern = re.compile(r"^(\d+)\1+$")
         return sum(filter(partial(self.is_invalid, pattern=pattern), self.project_ids))
 
-    def is_invalid(self, product_id: int, pattern: re.Pattern) -> bool:
+    def is_invalid(self, product_id: int, pattern: re.Pattern[str]) -> bool:
         return bool(pattern.match(str(product_id)))
