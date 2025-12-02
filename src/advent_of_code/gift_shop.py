@@ -1,3 +1,4 @@
+import re
 from functools import partial
 from itertools import chain
 
@@ -12,19 +13,12 @@ class GiftShop:
         )
 
     def invalid_ids_repeat_twice(self) -> int:
-        return sum(filter(partial(self.is_invalid, n_repeats=2), self.project_ids))
+        pattern = re.compile(r"^(\d+)\1$")
+        return sum(filter(partial(self.is_invalid, pattern=pattern), self.project_ids))
 
     def invalid_ids_repeat_any(self) -> int:
-        return sum(filter(self.is_invalid, self.project_ids))
+        pattern = re.compile(r"^(\d+)\1+$")
+        return sum(filter(partial(self.is_invalid, pattern=pattern), self.project_ids))
 
-    def is_invalid(self, product_id: int, n_repeats: int = -1) -> bool:
-        s_product_id = str(product_id)
-        s_product_id_length = len(s_product_id)
-        for substring_length in range(1, s_product_id_length // 2 + 1):
-            substring = s_product_id[:substring_length]
-            if s_product_id_length % substring_length != 0:
-                continue
-            repeats = s_product_id_length // substring_length
-            if n_repeats in (-1, repeats) and (substring * repeats == s_product_id):
-                return True
-        return False
+    def is_invalid(self, product_id: int, pattern: re.Pattern) -> bool:
+        return bool(pattern.match(str(product_id)))
