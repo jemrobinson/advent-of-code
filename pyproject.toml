@@ -104,6 +104,7 @@ format = "ruff format && ruff check --fix && mypy src"
 test2024 = "coverage run -m pytest ./test/2024/ && coverage report"
 test2025 = "coverage run -m pytest ./test/2025/ && coverage report"
 solve2024 = "for DAY in $(seq -w 1 25); do python ./solutions/2024/day_${DAY}.py; done"
+solve2025 = "for DAY in $(seq -w 1 12); do python ./solutions/2025/day_${DAY}.py; done"
 
 [tool.uv]
 package = true
