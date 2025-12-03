@@ -3,13 +3,13 @@ from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.logic_gates import Computer
 
 
-@timed_solution(day=24, part=1)
+@timed_solution(year=2024, day=24, part=1)
 def part_one() -> int:
     computer = Computer("2024/day-24.txt")
     return computer.output()
 
 
-@timed_solution(day=24, part=2)
+@timed_solution(year=2024, day=24, part=2)
 def part_two() -> str:
     computer = Computer("2024/day-24.txt")
     return computer.calculate_swaps()
