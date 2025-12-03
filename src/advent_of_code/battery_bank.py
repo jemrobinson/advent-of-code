@@ -14,17 +14,14 @@ class BatteryBank:
         self.digits = [int(d) for d in digits.strip()]
 
     def largest_joltage(self, n_batteries: int) -> int:
-        joltage = ""
+        joltage = 0
         start, end = 0, len(self.digits) + 1 - n_batteries
         for _ in range(n_batteries):
             idx, value = self.indexed_maximum(start, end)
-            joltage += str(value)
+            joltage = 10 * joltage + value
             start, end = idx + 1, end + 1
-        return int(joltage)
+        return joltage
 
     def indexed_maximum(self, start: int, end: int) -> tuple[int, int]:
-        largest_digit = max(self.digits[start:end])
-        for idx in range(start, end):
-            if self.digits[idx] == largest_digit:
-                return (idx, largest_digit)
-        raise ValueError
+        idx_max = max(range(start, end), key=self.digits.__getitem__)
+        return (idx_max, self.digits[idx_max])
