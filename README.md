@@ -8,10 +8,12 @@ This project uses `uv` to handle dependencies.
 ## Running tests
 
 To run the tests for a particular year: `uv run task test2025`.
+To run the tests for all years: `uv run task test`.
 
 ## Running solutions
 
 To run the solutions for a particular year: `uv run task solve2025`.
+To run the solutions for all years: `uv run task solve`.
 
 ## Running single solution
 
