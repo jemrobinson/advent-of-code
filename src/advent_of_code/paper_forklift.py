@@ -23,3 +23,18 @@ class PaperForklift:
         return sum(
             self.is_accessible(location, 4) for location in self.grid.locations()
         )
+
+    def accessible_rolls_with_removal(self) -> int:
+        accessed, accessible = 0, []
+        while True:
+            accessible = [
+                location
+                for location in self.grid.locations()
+                if self.is_accessible(location, 4)
+            ]
+            if accessible:
+                accessed += len(accessible)
+                for location in accessible:
+                    self.grid.set(location, ".")
+            else:
+                return accessed

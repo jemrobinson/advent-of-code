@@ -9,5 +9,12 @@ def part_one() -> int:
     return forklift.accessible_rolls()
 
 
+@timed_solution(year=2025, day=4, part=2)
+def part_two() -> int:
+    forklift = PaperForklift("2025/day-4.txt")
+    return forklift.accessible_rolls_with_removal()
+
+
 if __name__ == "__main__":
     part_one()
+    part_two()
