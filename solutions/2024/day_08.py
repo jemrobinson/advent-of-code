@@ -5,14 +5,14 @@ from advent_of_code.antennae import load_antenna_sets
 from advent_of_code.aoc_solution import timed_solution
 
 
-@timed_solution(day=8, part=1)
+@timed_solution(year=2024, day=8, part=1)
 def part_one() -> int:
     antennae = load_antenna_sets("2024/day-8.txt")
     antinodes = reduce(set.union, [a.antinodes() for a in antennae])
     return len(antinodes)
 
 
-@timed_solution(day=8, part=2)
+@timed_solution(year=2024, day=8, part=2)
 def part_two() -> int:
     antennae = load_antenna_sets("2024/day-8.txt")
     antinodes = reduce(

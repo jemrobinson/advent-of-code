@@ -6,14 +6,14 @@ from advent_of_code.data_loaders import load_file_as_string
 from advent_of_code.parser import MemoryParser, parse_memory_string
 
 
-@timed_solution(day=3, part=1)
+@timed_solution(year=2024, day=3, part=1)
 def part_one() -> int:
     memory = load_file_as_string("2024/day-3.txt")
     instructions = parse_memory_string(memory)
     return sum([x * y for x, y in instructions])
 
 
-@timed_solution(day=3, part=2)
+@timed_solution(year=2024, day=3, part=2)
 def part_two() -> int:
     memory = load_file_as_string("2024/day-3.txt")
     parser = MemoryParser()

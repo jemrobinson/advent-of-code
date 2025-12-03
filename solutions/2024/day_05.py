@@ -3,7 +3,7 @@ from advent_of_code.aoc_solution import timed_solution
 from advent_of_code.print_queue import PrintQueue
 
 
-@timed_solution(day=5, part=1)
+@timed_solution(year=2024, day=5, part=1)
 def part_one() -> int:
     queue = PrintQueue(
         rules_file="2024/day-5.rules.csv", updates_file="2024/day-5.updates.csv"
@@ -11,7 +11,7 @@ def part_one() -> int:
     return queue.score_ordered_updates()
 
 
-@timed_solution(day=5, part=2)
+@timed_solution(year=2024, day=5, part=2)
 def part_two() -> int:
     queue = PrintQueue(
         rules_file="2024/day-5.rules.csv", updates_file="2024/day-5.updates.csv"

@@ -4,7 +4,7 @@ from advent_of_code.calibration import CalibrationFull, CalibrationSimple
 from advent_of_code.data_loaders import load_file_as_lines
 
 
-@timed_solution(day=7, part=1)
+@timed_solution(year=2024, day=7, part=1)
 def part_one() -> int:
     calibrations = [
         CalibrationSimple(line) for line in load_file_as_lines("2024/day-7.txt")
@@ -14,7 +14,7 @@ def part_one() -> int:
     )
 
 
-@timed_solution(day=7, part=2)
+@timed_solution(year=2024, day=7, part=2)
 def part_two() -> int:
     calibrations = [
         CalibrationFull(line) for line in load_file_as_lines("2024/day-7.txt")

@@ -5,7 +5,7 @@ from collections.abc import Callable
 
 
 def timed_solution[**P, R](
-    day: int, part: int
+    year: int, day: int, part: int
 ) -> Callable[[Callable[P, R]], Callable[P, None]]:
     """Decorate solution with execution time."""
 
@@ -15,7 +15,7 @@ def timed_solution[**P, R](
             result = func(*args, **kwargs)
             elapsed = time.monotonic() - start
             print(
-                f"Day {day:02d} part {part}: {result} "
+                f"Year {year} Day {day:02d} part {part}: {result} "
                 f"completed in {elapsed:.3f} seconds.",
             )
 
