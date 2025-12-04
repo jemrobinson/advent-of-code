@@ -8,10 +8,6 @@ class PaperForklift:
         self.grid = StrMatrix(load_file_as_array(filename))
 
     def is_accessible(self, location: GridLocation, max_adjacent: int) -> bool:
-        if not self.grid.contains(location):
-            return False
-        if self.grid.get(location) != "@":
-            return False
         adjacent_paper = [
             self.grid.get(neighbour) == "@"
             for neighbour in location.neighbours_all()
@@ -20,21 +16,18 @@ class PaperForklift:
         return sum(adjacent_paper) < max_adjacent
 
     def accessible_rolls(self) -> int:
-        return sum(
-            self.is_accessible(location, 4) for location in self.grid.locations()
-        )
+        return sum(self.is_accessible(location, 4) for location in self.grid.find("@"))
 
     def accessible_rolls_with_removal(self) -> int:
-        accessed, accessible = 0, []
+        accessed = 0
         while True:
-            accessible = [
-                location
-                for location in self.grid.locations()
-                if self.is_accessible(location, 4)
-            ]
-            if accessible:
-                accessed += len(accessible)
-                for location in accessible:
+            accessed_this_pass = 0
+            for location in self.grid.find("@"):
+                if self.is_accessible(location, 4):
+                    accessed_this_pass += 1
                     self.grid.set(location, ".")
+            if accessed_this_pass:
+                accessed += accessed_this_pass
             else:
-                return accessed
+                break
+        return accessed
