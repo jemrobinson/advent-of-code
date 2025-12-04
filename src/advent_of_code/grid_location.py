@@ -67,6 +67,26 @@ class GridLocation:
     def manhattan(self, other: "GridLocation") -> int:
         return abs(self.pos_0 - other.pos_0) + abs(self.pos_1 - other.pos_1)
 
+    def neighbours_all(self) -> list["GridLocation"]:
+        return [
+            self.north(),
+            self.northeast(),
+            self.east(),
+            self.southeast(),
+            self.south(),
+            self.southwest(),
+            self.west(),
+            self.northwest(),
+        ]
+
+    def neighbours_cardinal(self) -> list["GridLocation"]:
+        return [
+            self.north(),
+            self.east(),
+            self.south(),
+            self.west(),
+        ]
+
     def north(self) -> "GridLocation":
         return self + GridVectorNorth()
 
