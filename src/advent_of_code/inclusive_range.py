@@ -1,4 +1,4 @@
-from collections.abc import Sequence
+from collections.abc import Iterable, Iterator
 
 
 class InclusiveRange:
@@ -13,7 +13,7 @@ class InclusiveRange:
             raise ValueError
         return InclusiveRange(min(self.start, other.start), max(self.end, other.end))
 
-    def __iter__(self) -> "InclusiveRange":
+    def __iter__(self) -> Iterator[int]:
         """Return iterator over range."""
         return iter(self._range)
 
@@ -40,11 +40,11 @@ class InclusiveRange:
 
 
 class DisjointRanges:
-    def __init__(self, ranges: Sequence[InclusiveRange]) -> None:
+    def __init__(self, *ranges: InclusiveRange) -> None:
         self.ranges = self.simplify(ranges)
 
-    def simplify(self, ranges: Sequence[InclusiveRange]) -> list[InclusiveRange]:
-        simplified_ranges = []
+    def simplify(self, ranges: Iterable[InclusiveRange]) -> list[InclusiveRange]:
+        simplified_ranges: list[InclusiveRange] = []
         for range_ in sorted(ranges, key=lambda r: r.start):
             if simplified_ranges and range_.overlaps(simplified_ranges[-1]):
                 simplified_ranges[-1] = range_ + simplified_ranges[-1]
