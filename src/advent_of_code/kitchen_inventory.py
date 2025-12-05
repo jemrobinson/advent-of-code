@@ -11,5 +11,8 @@ class KitchenInventory:
         )
         self.ids = [int(id_.strip()) for id_ in id_block.split("\n")]
 
-    def n_fresh_ingredients(self) -> int:
+    def n_available_fresh(self) -> int:
         return sum(1 for id_ in self.ids if self.ranges.contains(id_))
+
+    def n_known_fresh(self) -> int:
+        return len(self.ranges)

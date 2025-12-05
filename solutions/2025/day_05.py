@@ -6,8 +6,15 @@ from advent_of_code.kitchen_inventory import KitchenInventory
 @timed_solution(year=2025, day=5, part=1)
 def part_one() -> int:
     inventory = KitchenInventory("2025/day-5.txt")
-    return inventory.n_fresh_ingredients()
+    return inventory.n_available_fresh()
+
+
+@timed_solution(year=2025, day=5, part=2)
+def part_two() -> int:
+    inventory = KitchenInventory("2025/day-5.txt")
+    return inventory.n_known_fresh()
 
 
 if __name__ == "__main__":
     part_one()
+    part_two()
