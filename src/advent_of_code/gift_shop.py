@@ -3,12 +3,13 @@ from functools import partial
 from itertools import chain
 
 from advent_of_code.data_loaders import load_file_as_string
+from advent_of_code.inclusive_range import InclusiveRange
 
 
 class GiftShop:
     def __init__(self, filename: str) -> None:
         self.project_ids = chain.from_iterable(
-            range(int(id_range.split("-")[0]), int(id_range.split("-")[1]) + 1)
+            InclusiveRange(*id_range.split("-"))
             for id_range in load_file_as_string(filename).split(",")
         )
 
