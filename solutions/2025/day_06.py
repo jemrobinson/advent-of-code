@@ -9,5 +9,12 @@ def part_one() -> int:
     return worksheet.calculate_column_totals()
 
 
+@timed_solution(year=2025, day=6, part=2)
+def part_two() -> int:
+    worksheet = MathsWorksheet("2025/day-6.txt")
+    return worksheet.calculate_reversed_column_totals()
+
+
 if __name__ == "__main__":
     part_one()
+    part_two()
