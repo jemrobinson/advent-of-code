@@ -45,7 +45,7 @@ class TachyonManifold:
 
     def n_timelines(self) -> int:
         for _ in range(self.start.pos_0, self.grid.bounds()[0]):
-            new_beams = defaultdict(int)
+            new_beams: dict[TachyonBeam, int] = defaultdict(int)
             for beam, count in self.beams.items():
                 for new_beam in beam.move(self.grid):
                     new_beams[new_beam] += count
