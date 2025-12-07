@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from advent_of_code.data_loaders import load_file_as_array
 from advent_of_code.grid_location import GridLocation
 from advent_of_code.matrix import StrMatrix
@@ -30,13 +32,22 @@ class TachyonManifold:
     def __init__(self, filename: str) -> None:
         self.grid = StrMatrix(load_file_as_array(filename))
         self.start = self.grid.find("S")[0]
-        self.beams = {TachyonBeam(self.start)}
+        self.beams = {TachyonBeam(self.start): 1}
 
     def n_splits(self) -> int:
         n_splits = 0
         for _ in range(self.start.pos_0, self.grid.bounds()[0]):
             beams = [beam.move(self.grid) for beam in self.beams]
             splits = sum([len(beam_list) > 1 for beam_list in beams])
-            self.beams = {beam for beam_list in beams for beam in beam_list}
+            self.beams = {beam: 1 for beam_list in beams for beam in beam_list}
             n_splits += splits
         return n_splits
+
+    def n_timelines(self) -> int:
+        for _ in range(self.start.pos_0, self.grid.bounds()[0]):
+            new_beams = defaultdict(int)
+            for beam, count in self.beams.items():
+                for new_beam in beam.move(self.grid):
+                    new_beams[new_beam] += count
+            self.beams = new_beams
+        return sum(self.beams.values())

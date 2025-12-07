@@ -9,5 +9,12 @@ def part_one() -> int:
     return manifold.n_splits()
 
 
+@timed_solution(year=2025, day=7, part=2)
+def part_two() -> int:
+    manifold = TachyonManifold("2025/day-7.txt")
+    return manifold.n_timelines()
+
+
 if __name__ == "__main__":
     part_one()
+    part_two()
