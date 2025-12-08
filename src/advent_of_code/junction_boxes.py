@@ -1,3 +1,4 @@
+from collections.abc import Iterator
 from functools import reduce
 from operator import mul
 
@@ -6,8 +7,8 @@ from advent_of_code.disjoint_set import DisjointSet, SetElement
 
 
 class JunctionBoxElement(SetElement):
-    def __init__(self, position: tuple[int, int, int]) -> None:
-        super().__init__(position)
+    def __init__(self, position: Iterator[int]) -> None:
+        super().__init__((next(position), next(position), next(position)))
 
     def distance(self, other: "JunctionBoxElement") -> int:
         return sum(abs(self.value[idx] - other.value[idx]) ** 2 for idx in range(3))
@@ -15,11 +16,9 @@ class JunctionBoxElement(SetElement):
 
 class JunctionBoxes:
     def __init__(self, filename: str) -> None:
-        box_positions = [
-            list(map(int, line.split(","))) for line in load_file_as_lines(filename)
-        ]
         self.boxes = [
-            JunctionBoxElement(box_position) for box_position in box_positions
+            JunctionBoxElement(map(int, line.split(",")))
+            for line in load_file_as_lines(filename)
         ]
         distances = {
             (box_i, box_j): box_i.distance(box_j)
@@ -35,7 +34,7 @@ class JunctionBoxes:
         for box_i, box_j in self.closest_pairs:
             self.box_set.union(box_i, box_j)
             if len(self.box_set.roots()) == 1:
-                return box_i.value[0] * box_j.value[0]
+                return int(box_i.value[0]) * int(box_j.value[0])
         raise RuntimeError
 
     def largest_circuits(self, n_connections: int = 10) -> int:
