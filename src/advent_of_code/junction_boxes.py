@@ -31,6 +31,11 @@ class JunctionBoxes:
         self.box_set = DisjointSet(self.boxes)
 
     def fully_connected(self) -> int:
+        """Use a modified Kruskal's algorithm, terminating when all boxes are connected.
+
+        Note that this is slower than the original implementation since we check the
+        number of roots at each iteration.
+        """
         for box_i, box_j in self.closest_pairs:
             self.box_set.union(box_i, box_j)
             if len(self.box_set.roots()) == 1:
