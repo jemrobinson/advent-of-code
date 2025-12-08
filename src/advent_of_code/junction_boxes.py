@@ -21,16 +21,25 @@ class JunctionBoxes:
         self.boxes = [
             JunctionBoxElement(box_position) for box_position in box_positions
         ]
-        self.distances = {
+        distances = {
             (box_i, box_j): box_i.distance(box_j)
             for idx, box_i in enumerate(self.boxes)
             for box_j in self.boxes[idx + 1 :]
         }
+        self.closest_pairs = [
+            boxes for boxes, _ in sorted(distances.items(), key=lambda item: item[1])
+        ]
         self.box_set = DisjointSet(self.boxes)
 
+    def fully_connected(self) -> int:
+        for box_i, box_j in self.closest_pairs:
+            self.box_set.union(box_i, box_j)
+            if len(self.box_set.roots()) == 1:
+                return box_i.value[0] * box_j.value[0]
+        raise RuntimeError
+
     def largest_circuits(self, n_connections: int = 10) -> int:
-        ordered_distances = sorted(self.distances.items(), key=lambda item: item[1])
-        for (box_i, box_j), _ in ordered_distances[:n_connections]:
+        for box_i, box_j in self.closest_pairs[:n_connections]:
             self.box_set.union(box_i, box_j)
         circuit_sizes = [len(children) for children in self.box_set.children().values()]
         return reduce(mul, sorted(circuit_sizes, reverse=True)[:3], 1)

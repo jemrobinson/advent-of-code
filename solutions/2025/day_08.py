@@ -9,5 +9,12 @@ def part_one() -> int:
     return boxes.largest_circuits(1000)
 
 
+@timed_solution(year=2025, day=8, part=2)
+def part_two() -> int:
+    boxes = JunctionBoxes("2025/day-8.txt")
+    return boxes.fully_connected()
+
+
 if __name__ == "__main__":
     part_one()
+    part_two()

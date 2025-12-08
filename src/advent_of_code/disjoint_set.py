@@ -36,6 +36,10 @@ class DisjointSet:
             children[root].append(box)
         return children
 
+    def roots(self) -> set[SetElement]:
+        """Return the set of root elements."""
+        return {self.find(element) for element in self.parent}
+
     def union(self, element1: SetElement, element2: SetElement) -> None:
         """Join the sets containing element1 and element2."""
         root1 = self.find(element1)
