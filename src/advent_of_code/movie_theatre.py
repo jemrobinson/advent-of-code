@@ -35,14 +35,12 @@ class MovieTheatre:
             min(corner_1.pos_1, corner_2.pos_1),
             max(corner_1.pos_1, corner_2.pos_1),
         )
+        # There will be a straight line between each pair of red tiles
         for tile_1, tile_2 in pairwise(self.red_tiles):
-            xs = (tile_1.pos_0, tile_2.pos_0)
-            ys = (tile_1.pos_1, tile_2.pos_1)
+            lxmin, lxmax = sorted((tile_1.pos_0, tile_2.pos_0))
+            lymin, lymax = sorted((tile_1.pos_1, tile_2.pos_1))
             if not (
-                max(xs) <= bxmin
-                or bxmax <= min(xs)
-                or max(ys) <= bymin
-                or bymax <= min(ys)
+                lxmax <= bxmin or bxmax <= lxmin or lymax <= bymin or bymax <= lymin
             ):
                 return False
         return True
