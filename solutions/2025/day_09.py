@@ -9,5 +9,12 @@ def part_one() -> int:
     return theatre.largest_rectangle()
 
 
+@timed_solution(year=2025, day=9, part=2)
+def part_two() -> int:
+    theatre = MovieTheatre("2025/day-9.txt")
+    return theatre.largest_enclosed_rectangle()
+
+
 if __name__ == "__main__":
     part_one()
+    part_two()
