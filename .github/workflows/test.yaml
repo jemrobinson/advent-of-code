@@ -29,4 +29,4 @@ jobs:
 
       - name: Test Python
         run: |
-          uv run task test2024
+          uv run task test
