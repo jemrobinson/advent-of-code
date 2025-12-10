@@ -36,7 +36,7 @@ class MovieTheatre:
             max(corner_1.pos_1, corner_2.pos_1),
         )
         # There will be a straight line between each pair of red tiles
-        for tile_1, tile_2 in pairwise(self.red_tiles + [self.red_tiles[0]]):
+        for tile_1, tile_2 in pairwise([*self.red_tiles, self.red_tiles[0]]):
             lxmin, lxmax = sorted((tile_1.pos_0, tile_2.pos_0))
             lymin, lymax = sorted((tile_1.pos_1, tile_2.pos_1))
             if not (
