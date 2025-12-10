@@ -16,6 +16,7 @@ dependencies = [
   "numpy>=2.3.5",
   "pandas>=2.3.3",
   "ply>=3.11",
+  "scipy>=1.16.3",
 ]
 
 [project.urls]
@@ -30,6 +31,7 @@ dev = [
   "pydantic==2.10.2",
   "pytest>=8.3.4",
   "ruff>=0.14.6",
+  "scipy-stubs>=1.16.3.3",
   "taskipy>=1.14.1",
 ]
 
