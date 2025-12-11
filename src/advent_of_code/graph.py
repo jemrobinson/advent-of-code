@@ -121,8 +121,15 @@ class Graph:
 
     @lru_cache(None)  # noqa: B019
     def count_paths(self, start: Node, end: Node) -> int:
-        """Implement depth-first search to count number of paths."""
+        """Implement depth-first search to count number of paths.
+
+        Note that this assumes a directed acyclic graph.
+        """
         n_paths = 0
+        # If this node has no outgoing edges then the path ends here
+        if start not in self.graph:
+            return 0
+        # Otherwise recursively check each outgoing edge
         for node in self.graph[start]:
             if node == end:
                 return 1

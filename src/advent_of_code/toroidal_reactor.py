@@ -21,5 +21,20 @@ class ToroidalReactor:
                     self.nodes[target] = DeviceNode(target)
                 self.graph.add_edge(self.nodes[source], self.nodes[target], 1)
 
-    def n_paths(self) -> int:
+    def n_paths_you(self) -> int:
         return self.graph.count_paths(self.nodes["you"], self.nodes["out"])
+
+    def n_paths_server(self) -> int:
+        # Get nodes
+        n_svr = self.nodes["svr"]
+        n_dac = self.nodes["dac"]
+        n_fft = self.nodes["fft"]
+        n_out = self.nodes["out"]
+        n_svr_dac = self.graph.count_paths(n_svr, n_dac)
+        n_dac_fft = self.graph.count_paths(n_dac, n_fft)
+        n_fft_out = self.graph.count_paths(n_fft, n_out)
+        # n_svr -> n_fft -> n_dac -> n_out
+        n_svr_fft = self.graph.count_paths(n_svr, n_fft)
+        n_fft_dac = self.graph.count_paths(n_fft, n_dac)
+        n_dac_out = self.graph.count_paths(n_dac, n_out)
+        return n_svr_dac * n_dac_fft * n_fft_out + n_svr_fft * n_fft_dac * n_dac_out
