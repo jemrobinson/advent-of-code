@@ -1,6 +1,7 @@
 import heapq
 from collections import deque
 from collections.abc import Iterable
+from functools import lru_cache
 from typing import Any
 
 
@@ -117,6 +118,16 @@ class Graph:
             p_nodes.remove(node)
             x_nodes.add(node)
         return output
+
+    @lru_cache(None)  # noqa: B019
+    def count_paths(self, start: Node, end: Node) -> int:
+        """Implement depth-first search to count number of paths."""
+        n_paths = 0
+        for node in self.graph[start]:
+            if node == end:
+                return 1
+            n_paths += self.count_paths(node, end)
+        return n_paths
 
     def dijkstra(self, start: Node) -> dict[Node, float]:
         """Implement Dijkstra's algorithm."""
