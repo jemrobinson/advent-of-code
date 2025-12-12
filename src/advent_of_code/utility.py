@@ -1,4 +1,4 @@
-from collections.abc import Iterator
+from collections.abc import Callable, Sequence
 
 
 def as_int(input_string: str) -> int:
@@ -14,9 +14,11 @@ def count(substring: str, string: str) -> int:
     )
 
 
-def partition(predicate: callable, iterable: Iterator) -> tuple[list, list]:
+def partition[T](
+    predicate: Callable[[T], bool], iterable: Sequence[T]
+) -> tuple[list[T], list[T]]:
     """Partition `iterable` into (list-of-false, list-of-true) according to `predicate`."""
-    results = ([], [])
+    results: tuple[list[T], list[T]] = ([], [])
     for item in iterable:
         results[predicate(item)].append(item)
     return results
